@@ -7,21 +7,65 @@
 //
 
 import Foundation
+import MapKit
 
+/**
+ An enum representing the order of the coordinates
+ */
 @objc public enum CoordinateOrder: Int {
+    /**
+     Ordered latitude then longitude
+     */
     case LatLng
+    /**
+     Ordered longitude then latitude
+     */
     case LngLat
 }
 
+/**
+ The geometry type of the GeoJSON object
+ 
+ - SeeAlso: [GeoJSON - Geometry Spec](http://geojson.org/geojson-spec.html#geometry-objects)
+ - Note: We have added Circle here, which isn't in the specification, but which is required by us as an Agency
+ */
 public enum GeometryType: String {
+    
+    /**
+     We're not quite sure how you got here, but you seem to have managed to. Congrats
+     */
     case Unknown
+    /**
+     A simple point.
+     */
     case Point
+    /**
+     A collection of separate points.
+     */
     case MultiPoint
+    /**
+     A collection of points representing a line between them.
+     */
     case LineString
+    /**
+     A collection of LineStrings representing multiple paths on a map.
+     */
     case MultiLineString
+    /**
+     A simple polygon, the first array of coordinates will be used as the outer polygon, and any further arrays will be cut out from the interior of that outer polygon
+     */
     case Polygon
+    /**
+     A collection of Polygons representing multiple polygons on a map.
+     */
     case MultiPolygon
+    /**
+     A collection of any of the other types of GeoJSON geometry
+     */
     case GeometryCollection
+    /**
+     A custom GeoJSON object with a single position and a radius
+     */
     case Circle
 }
 
@@ -33,11 +77,26 @@ func RadiansToDegrees (value:Double) -> Double {
     return value * 180.0 / M_PI
 }
 
+/**
+ A class representation of a GeoJSON Position object
+ 
+ - SeeAlso: [GeoJSON - Position](http://geojson.org/geojson-spec.html#positions)
+ */
 public class Position: NSObject {
     
+    /**
+     The latitudal value of the position
+     */
     public var latitude: CLLocationDegrees
+    
+    /**
+     The longitudinal value of the position
+     */
     public var longitude: CLLocationDegrees
     
+    /**
+     Helper method for returning a CLLocationCoordinate2D from the object
+     */
     public var coordinate: CLLocationCoordinate2D {
         get {
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -63,12 +122,21 @@ public class Position: NSObject {
         super.init()
     }
     
+    /**
+     Initialises and returns a Position object from an array of Double types
+     */
     init(coordinates:[Double]) {
         
         latitude = coordinates.count > 1 ? coordinates[1] : 0.0
         longitude = coordinates.count > 0 ? coordinates[0] : 0.0
     }
     
+    /**
+     Returns a CLLocationCoordinate2D representation of the object with a given Coordinate Order
+     
+     - Parameter coordinateOrder: The coordinate order to create the CLLocationCoordinate2D with
+     - Returns: Returns a CLLocationCoordinate2D
+     */
     public func coordinate(coordinateOrder: CoordinateOrder) -> CLLocationCoordinate2D {
         
         switch coordinateOrder {
@@ -79,12 +147,23 @@ public class Position: NSObject {
         }
     }
     
+    /**
+     Returns the GeoJSON spec dictionary representation of the Position Object
+     
+     - Returns: Returns an array of Doubles
+     */
     public var dictionaryRepresentation: [Double] {
         get {
             return [longitude, latitude]
         }
     }
     
+    /**
+     A helper method to get the center of an array of Position objects
+     
+     - Parameter positions: The array of Position objects to return the center point for
+     - Returns: A Position object at the center of the given positions
+     */
     public static func center(positions:[Position]) -> Position {
         
         if (positions.count == 1) {
@@ -117,16 +196,29 @@ public class Position: NSObject {
         }
         
         return Position(coordinates: [ (maxLng + minLng) * 0.5,(maxLat + minLat) * 0.5])
-
+        
     }
 }
 
+/**
+ A class representing any Geometry from the GeoJSON specification
+ 
+ This geometry object will recursively allocate any child geometries, and will also create MKShape objects where it can to represent the GeoJSON parsed
+ */
 public class Geometry: NSObject {
     
+    /**
+     The geometry type of the GeoJSON Geometry
+     */
     public var type: GeometryType
     
+    /**
+     For our Objective-C Compatriates, a string representation of the geometry type
+     
+     - Warning: This also changes `type` when set!
+     */
     public var typeString: String {
-
+        
         didSet {
             
             if let aType = GeometryType(rawValue: typeString) {
@@ -136,20 +228,64 @@ public class Geometry: NSObject {
             }
         }
     }
+    
+    /**
+     The central coordinate of the geometry object
+     */
     public var centerCoordinate: Position?
     
     // Which one of these is set depends on the type of the geometry
     
+    /**
+     An optional array of Position objects
+     
+     This should be non-nil for the following geometry types:
+     
+     - Point
+     - MultiPoint
+     - LineString
+     - Circle
+     */
     public var coordinates: [Position]?
     
+    /**
+     An optional array of array of Position objects
+     
+     This should be non-nil for the following geometry types:
+     
+     - MultiLineString
+     - Polygon
+     */
     public var multiCoordinates: [[Position]]?
     
+    /**
+     An optional array of array of array of Position objects
+     
+     This should be non-nil for the following geometry types:
+     
+     - MultiPolygon
+     */
     public var multiMultiCoordinates: [[[Position]]]?
     
+    /**
+     An optional array of geometry objects
+     
+     This should be non-nil for GeometryCollection geometry types
+     */
     public var geometries: [Geometry]?
     
+    /**
+     The radius of the geometry object
+     
+     - Note: This should only be non-zero for cirlce geometry types
+     */
     public var radius: Double
     
+    /**
+     A JSON representation of the original GeoJSON for this geometry object
+     
+     - Warning: This is a get method, so should not be called too frequently, for large Geometry objects it could become intensive
+     */
     public var dictionaryRepresentation: [String:AnyObject] {
         
         get {
@@ -207,9 +343,15 @@ public class Geometry: NSObject {
             return dict
         }
     }
-
+    
+    /**
+     An optional array of MKShape objects which represent the geometry
+     */
     public var shapes:[MKShape]?
     
+    /**
+     Initialises and populates a new Geometry object from a GeoJSON dictionary
+     */
     public init(dictionary:[String:AnyObject]) {
         
         guard let typeStr = dictionary["type"] as? String, geoType = GeometryType(rawValue: typeStr) else {
@@ -230,12 +372,16 @@ public class Geometry: NSObject {
             processCoordinates(coords)
         }
         
-        processShapes()
+        processShapes(dictionary)
         processCenter()
- 
     }
     
-    private func processShapes() {
+    /**
+     Processes and allocates the geometries coordinates to create the Shapes array
+     
+     - Parameter dictionary: The dictionary to process shapes for
+     */
+    private func processShapes(dictionary: [String:AnyObject]) {
         
         switch type {
             
@@ -306,6 +452,11 @@ public class Geometry: NSObject {
         }
     }
     
+    /**
+     Processes and allocates a Polygon shape from an array of array of positions
+     
+     - Parameter coords: The array of array of coordinates to process
+     */
     private func processPolygon(coords:[[Position]]) -> Polygon? {
         
         guard let outerCoords = coords.first else { return nil }
@@ -320,6 +471,11 @@ public class Geometry: NSObject {
         return Polygon.polygon(coordinates: outerCoords, order: .LatLng, interiorPolygons:innerPolygons)
     }
     
+    /**
+     Processes the coordinates property of a Geometry object
+     
+     - Parameter coords: The coordinates property to process
+     */
     private func processCoordinates(coords:[AnyObject]?) {
         
         if let singleCoord = coords as? [Double] {
@@ -357,9 +513,12 @@ public class Geometry: NSObject {
             })
             
         }
-
+        
     }
     
+    /**
+     Calculates and sets the center of the geometry object
+     */
     private func processCenter() {
         
         if let coords = coordinates {
@@ -394,11 +553,17 @@ public class Geometry: NSObject {
         
     }
     
+    /**
+     For our objective-c friends this method allows you to use the + property to append a new position object to a Geometry
+     */
     public class func append(position: Position, original: Geometry) -> Geometry {
         return original + position
     }
 }
 
+/**
+ Allows the plus operator to add a Position object to a Geometry object
+ */
 public func +(left: Geometry, right: Position) -> Geometry {
     
     var typeString = left.type.rawValue
