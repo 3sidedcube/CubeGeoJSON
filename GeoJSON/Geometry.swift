@@ -124,6 +124,7 @@ public class Position: NSObject {
 public class Geometry: NSObject {
     
     public var type: GeometryType
+    
     public var typeString: String {
 
         didSet {
@@ -229,12 +230,18 @@ public class Geometry: NSObject {
             processCoordinates(coords)
         }
         
+        processShapes()
+        processCenter()
+ 
+    }
+    
+    private func processShapes() {
+        
         switch type {
             
         case .Point, .MultiPoint:
             
             guard let coords = coordinates else { break }
-            
             shapes = coords.map({ return PointShape.point($0, order: .LatLng) })
             
         case .LineString:
@@ -297,9 +304,6 @@ public class Geometry: NSObject {
         default: break
             
         }
-        
-        processCenter()
- 
     }
     
     private func processPolygon(coords:[[Position]]) -> Polygon? {
