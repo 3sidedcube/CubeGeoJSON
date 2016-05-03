@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86421CD8BACE0000C7E6 /* Shapes.swift */; };
 		B159331E1CD8A13B00A5D192 /* GeoJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = B159331D1CD8A13B00A5D192 /* GeoJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B15933251CD8A13B00A5D192 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159331A1CD8A13B00A5D192 /* GeoJSON.framework */; };
 		B159332A1CD8A13B00A5D192 /* GeoJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B14D86421CD8BACE0000C7E6 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		B159331A1CD8A13B00A5D192 /* GeoJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeoJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B159331D1CD8A13B00A5D192 /* GeoJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoJSON.h; sourceTree = "<group>"; };
 		B159331F1CD8A13B00A5D192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				B15933421CD8A46600A5D192 /* Geometry.swift */,
+				B14D86421CD8BACE0000C7E6 /* Shapes.swift */,
 				B159331D1CD8A13B00A5D192 /* GeoJSON.h */,
 				B159331F1CD8A13B00A5D192 /* Info.plist */,
 			);
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */,
 				B15933431CD8A46600A5D192 /* Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +389,7 @@
 				B15933301CD8A13B00A5D192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B15933311CD8A13B00A5D192 /* Build configuration list for PBXNativeTarget "GeoJSONTests" */ = {
 			isa = XCConfigurationList;
@@ -393,6 +398,7 @@
 				B15933331CD8A13B00A5D192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
