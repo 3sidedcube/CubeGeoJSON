@@ -20,7 +20,7 @@ public class Polygon: MKPolygon {
      - Parameter coordinates: An array of coordinates representing the Polygon
      */
     public static func polygon(coordinates:[Position]) -> Polygon {
-        return self.polygon(coordinates: coordinates, order: .LatLng, interiorPolygons:[])
+        return self.polygon(coordinates: coordinates, order: .LngLat, interiorPolygons:[])
     }
     
     /**
@@ -61,7 +61,7 @@ public class Polyline: MKPolyline {
      - Parameter coordinates: An array of coordinates representing the Polyline
      */
     public static func polyline(coordinates:[Position]) -> Polyline {
-        return self.polyline(coordinates: coordinates, order: .LatLng)
+        return self.polyline(coordinates: coordinates, order: .LngLat)
     }
     
     /**
@@ -92,7 +92,7 @@ public class Circle: MKCircle {
      - Parameter radius: The radius of the circle
      */
     public static func circle(coordinate:Position, radius:CLLocationDistance) -> Circle {
-        return self.circle(coordinate, radius:radius, order: .LatLng)
+        return self.circle(coordinate, radius:radius, order: .LngLat)
     }
     
     /**
@@ -118,7 +118,7 @@ public class PointShape: MKPointAnnotation {
      - Parameter coordinate: The coordinate of the annotation
      */
     public static func point(coordinate:Position) -> PointShape {
-        return self.point(coordinate, order: .LatLng)
+        return self.point(coordinate, order: .LngLat)
     }
     /**
      Returns a new instance from a position object

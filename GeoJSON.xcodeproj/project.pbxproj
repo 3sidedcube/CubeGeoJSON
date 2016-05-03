@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86421CD8BACE0000C7E6 /* Shapes.swift */; };
+		B14D86841CD8DE880000C7E6 /* positionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86831CD8DE880000C7E6 /* positionTests.swift */; };
+		B14D86861CD8E6330000C7E6 /* Test GeoJSON in Resources */ = {isa = PBXBuildFile; fileRef = B14D86851CD8E6330000C7E6 /* Test GeoJSON */; };
 		B159331E1CD8A13B00A5D192 /* GeoJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = B159331D1CD8A13B00A5D192 /* GeoJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B15933251CD8A13B00A5D192 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159331A1CD8A13B00A5D192 /* GeoJSON.framework */; };
 		B159332A1CD8A13B00A5D192 /* GeoJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		B14D86421CD8BACE0000C7E6 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		B14D86831CD8DE880000C7E6 /* positionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = positionTests.swift; sourceTree = "<group>"; };
+		B14D86851CD8E6330000C7E6 /* Test GeoJSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test GeoJSON"; sourceTree = "<group>"; };
 		B159331A1CD8A13B00A5D192 /* GeoJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeoJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B159331D1CD8A13B00A5D192 /* GeoJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoJSON.h; sourceTree = "<group>"; };
 		B159331F1CD8A13B00A5D192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 		B15933281CD8A13B00A5D192 /* GeoJSONTests */ = {
 			isa = PBXGroup;
 			children = (
+				B14D86851CD8E6330000C7E6 /* Test GeoJSON */,
+				B14D86831CD8DE880000C7E6 /* positionTests.swift */,
 				B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */,
 				B159332B1CD8A13B00A5D192 /* Info.plist */,
 			);
@@ -190,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14D86861CD8E6330000C7E6 /* Test GeoJSON in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14D86841CD8DE880000C7E6 /* positionTests.swift in Sources */,
 				B159332A1CD8A13B00A5D192 /* GeoJSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
