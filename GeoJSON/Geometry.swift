@@ -139,11 +139,12 @@ public class Position: NSObject {
      */
     public func coordinate(coordinateOrder: CoordinateOrder) -> CLLocationCoordinate2D {
         
+        // Because long lat matches what we assumed the order was on init we return that correctly
         switch coordinateOrder {
         case .LngLat:
-            return CLLocationCoordinate2D(latitude: longitude, longitude: latitude)
-        case .LatLng:
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        case .LatLng:
+            return CLLocationCoordinate2D(latitude: longitude, longitude: latitude)
         }
     }
     
@@ -387,18 +388,17 @@ public class Geometry: NSObject {
             
         case .Point, .MultiPoint:
             
-            guard let coords = coordinates else { break }
-            shapes = coords.map({ return PointShape.point($0, order: .LatLng) })
+            shapes = coordinates?.map({ return PointShape.point($0, order: .LngLat) })
             
         case .LineString:
             
             guard let coords = coordinates else { break }
-            shapes = [Polyline.polyline(coordinates: coords, order: .LatLng)]
+            shapes = [Polyline.polyline(coordinates: coords, order: .LngLat)]
             
         case .MultiLineString:
             
             shapes = multiCoordinates?.map({
-                return Polyline.polyline(coordinates: $0, order: .LatLng)
+                return Polyline.polyline(coordinates: $0, order: .LngLat)
             })
             
         case .Polygon:
@@ -445,7 +445,7 @@ public class Geometry: NSObject {
                 radius = 1609.344
             }
             
-            shapes = [Circle.circle(firstCoord, radius: radius, order: .LatLng)]
+            shapes = [Circle.circle(firstCoord, radius: radius, order: .LngLat)]
             
         default: break
             
@@ -465,10 +465,10 @@ public class Geometry: NSObject {
         aCoords.removeFirst()
         
         let innerPolygons = aCoords.map({
-            return Polygon.polygon($0, order: .LatLng)
+            return Polygon.polygon($0, order: .LngLat)
         })
         
-        return Polygon.polygon(coordinates: outerCoords, order: .LatLng, interiorPolygons:innerPolygons)
+        return Polygon.polygon(coordinates: outerCoords, order: .LngLat, interiorPolygons:innerPolygons)
     }
     
     /**
