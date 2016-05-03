@@ -16,6 +16,7 @@ public class Polygon: MKPolygon {
     
     /**
      Returns a new instance from an array of Position objects
+     
      - Parameter coordinates: An array of coordinates representing the Polygon
      */
     public static func polygon(coordinates:[Position]) -> Polygon {
@@ -24,6 +25,7 @@ public class Polygon: MKPolygon {
     
     /**
      Returns a new instance from an array of Position objects with a given coordinate order
+     
      - Parameter coordinates: An array of coordinates representing the Polygon
      - Parameter order: The order that the coordinates appear in
      */
@@ -33,6 +35,7 @@ public class Polygon: MKPolygon {
     
     /**
      Returns a new instance from an array of Position objects with an optional set of interior polygons
+     
      - Parameter coordinates: An array of coordinates representing the Polygon
      - Parameter order: The order that the coordinates appear in
      - Parameter interiorPolygons: Any interior polygon objects that the polygon has
@@ -54,6 +57,7 @@ public class Polyline: MKPolyline {
     
     /**
      Returns a new instance from an array of Position objects
+     
      - Parameter coordinates: An array of coordinates representing the Polyline
      */
     public static func polyline(coordinates:[Position]) -> Polyline {
@@ -62,6 +66,7 @@ public class Polyline: MKPolyline {
     
     /**
      Returns a new instance from an array of Position objects
+     
      - Parameter coordinates: An array of coordinates representing the Polyline
      - Parameter order: The order that the coordinates appear in
      */
@@ -82,6 +87,7 @@ public class Circle: MKCircle {
     
     /**
      Returns a new instance from an array of Position objects
+     
      - Parameter coordinate: The center coordinate of the circle
      - Parameter radius: The radius of the circle
      */
@@ -91,6 +97,7 @@ public class Circle: MKCircle {
     
     /**
      Returns a new instance from an array of Position objects
+     
      - Parameter coordinate: The center coordinate of the circle
      - Parameter radius: The radius of the circle
      - Parameter order: The order that the coordinates appear in
@@ -107,6 +114,7 @@ public class PointShape: MKPointAnnotation {
     
     /**
      Returns a new instance from a position object
+     
      - Parameter coordinate: The coordinate of the annotation
      */
     public static func point(coordinate:Position) -> PointShape {
@@ -114,6 +122,7 @@ public class PointShape: MKPointAnnotation {
     }
     /**
      Returns a new instance from a position object
+     
      - Parameter coordinate: The coordinate of the annotation
      - Parameter order: The coordinate order of the position object
      */

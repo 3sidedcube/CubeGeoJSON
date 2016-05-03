@@ -13,9 +13,13 @@ import MapKit
  An enum representing the order of the coordinates
  */
 @objc public enum CoordinateOrder: Int {
-    // Ordered latitude then longitude
+    /**
+     Ordered latitude then longitude
+     */
     case LatLng
-    // Ordered longitude then latitude
+    /**
+     Ordered longitude then latitude
+     */
     case LngLat
 }
 
@@ -27,23 +31,41 @@ import MapKit
  */
 public enum GeometryType: String {
     
-    // We're not quite sure how you got here, but you seem to have managed to. Congrats
+    /**
+     We're not quite sure how you got here, but you seem to have managed to. Congrats
+     */
     case Unknown
-    // A simple point.
+    /**
+     A simple point.
+     */
     case Point
-    // A collection of separate points.
+    /**
+     A collection of separate points.
+     */
     case MultiPoint
-    // A collection of points representing a line between them.
+    /**
+     A collection of points representing a line between them.
+     */
     case LineString
-    // A collection of LineStrings representing multiple paths on a map.
+    /**
+     A collection of LineStrings representing multiple paths on a map.
+     */
     case MultiLineString
-    // A simple polygon, the first array of coordinates will be used as the outer polygon, and any further arrays will be cut out from the interior of that outer polygon
+    /**
+     A simple polygon, the first array of coordinates will be used as the outer polygon, and any further arrays will be cut out from the interior of that outer polygon
+     */
     case Polygon
-    // A collection of Polygons representing multiple polygons on a map.
+    /**
+     A collection of Polygons representing multiple polygons on a map.
+     */
     case MultiPolygon
-    // A collection of any of the other types of GeoJSON geometry
+    /**
+     A collection of any of the other types of GeoJSON geometry
+     */
     case GeometryCollection
-    // A custom GeoJSON object with a single position and a radius
+    /**
+     A custom GeoJSON object with a single position and a radius
+     */
     case Circle
 }
 
@@ -111,6 +133,7 @@ public class Position: NSObject {
     
     /**
      Returns a CLLocationCoordinate2D representation of the object with a given Coordinate Order
+     
      - Parameter coordinateOrder: The coordinate order to create the CLLocationCoordinate2D with
      - Returns: Returns a CLLocationCoordinate2D
      */
@@ -137,6 +160,7 @@ public class Position: NSObject {
     
     /**
      A helper method to get the center of an array of Position objects
+     
      - Parameter positions: The array of Position objects to return the center point for
      - Returns: A Position object at the center of the given positions
      */
@@ -190,6 +214,7 @@ public class Geometry: NSObject {
     
     /**
      For our Objective-C Compatriates, a string representation of the geometry type
+     
      - Warning: This also changes `type` when set!
      */
     public var typeString: String {
@@ -215,6 +240,7 @@ public class Geometry: NSObject {
      An optional array of Position objects
      
      This should be non-nil for the following geometry types:
+     
      - Point
      - MultiPoint
      - LineString
@@ -226,6 +252,7 @@ public class Geometry: NSObject {
      An optional array of array of Position objects
      
      This should be non-nil for the following geometry types:
+     
      - MultiLineString
      - Polygon
      */
@@ -235,6 +262,7 @@ public class Geometry: NSObject {
      An optional array of array of array of Position objects
      
      This should be non-nil for the following geometry types:
+     
      - MultiPolygon
      */
     public var multiMultiCoordinates: [[[Position]]]?
@@ -248,12 +276,14 @@ public class Geometry: NSObject {
     
     /**
      The radius of the geometry object
+     
      - Note: This should only be non-zero for cirlce geometry types
      */
     public var radius: Double
     
     /**
      A JSON representation of the original GeoJSON for this geometry object
+     
      - Warning: This is a get method, so should not be called too frequently, for large Geometry objects it could become intensive
      */
     public var dictionaryRepresentation: [String:AnyObject] {
@@ -348,6 +378,7 @@ public class Geometry: NSObject {
     
     /**
      Processes and allocates the geometries coordinates to create the Shapes array
+     
      - Parameter dictionary: The dictionary to process shapes for
      */
     private func processShapes(dictionary: [String:AnyObject]) {
@@ -423,6 +454,7 @@ public class Geometry: NSObject {
     
     /**
      Processes and allocates a Polygon shape from an array of array of positions
+     
      - Parameter coords: The array of array of coordinates to process
      */
     private func processPolygon(coords:[[Position]]) -> Polygon? {
@@ -441,6 +473,7 @@ public class Geometry: NSObject {
     
     /**
      Processes the coordinates property of a Geometry object
+     
      - Parameter coords: The coordinates property to process
      */
     private func processCoordinates(coords:[AnyObject]?) {
@@ -485,7 +518,7 @@ public class Geometry: NSObject {
     
     /**
      Calculates and sets the center of the geometry object
-    */
+     */
     private func processCenter() {
         
         if let coords = coordinates {
@@ -522,7 +555,7 @@ public class Geometry: NSObject {
     
     /**
      For our objective-c friends this method allows you to use the + property to append a new position object to a Geometry
-    */
+     */
     public class func append(position: Position, original: Geometry) -> Geometry {
         return original + position
     }
