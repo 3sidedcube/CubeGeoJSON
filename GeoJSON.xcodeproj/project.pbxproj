@@ -14,6 +14,7 @@
 		B15933251CD8A13B00A5D192 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159331A1CD8A13B00A5D192 /* GeoJSON.framework */; };
 		B159332A1CD8A13B00A5D192 /* GeoJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */; };
 		B15933431CD8A46600A5D192 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933421CD8A46600A5D192 /* Geometry.swift */; };
+		B1A5CC611CD9039F004A22C7 /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A5CC601CD9039F004A22C7 /* TestCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONTests.swift; sourceTree = "<group>"; };
 		B159332B1CD8A13B00A5D192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15933421CD8A46600A5D192 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		B1A5CC601CD9039F004A22C7 /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				B14D86851CD8E6330000C7E6 /* Test GeoJSON */,
 				B14D86831CD8DE880000C7E6 /* positionTests.swift */,
+				B1A5CC601CD9039F004A22C7 /* TestCore.swift */,
 				B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */,
 				B159332B1CD8A13B00A5D192 /* Info.plist */,
 			);
@@ -218,6 +221,7 @@
 			files = (
 				B14D86841CD8DE880000C7E6 /* positionTests.swift in Sources */,
 				B159332A1CD8A13B00A5D192 /* GeoJSONTests.swift in Sources */,
+				B1A5CC611CD9039F004A22C7 /* TestCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import XCTest
 @testable import GeoJSON
 
-class GeoJSONTests: XCTestCase {
+class GeoJSONTests: TestCore {
     
     override func setUp() {
         super.setUp()
@@ -22,11 +22,8 @@ class GeoJSONTests: XCTestCase {
     }
     
     func testPointAllocation() {
-        
-        let bundle = NSBundle(forClass: GeoJSONTests.self)
-        
-        guard let resource = bundle.pathForResource("Test GeoJSON/PointGeoJSON", ofType: "geojson"), data = NSData(contentsOfFile: resource) else { return }
-        guard let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String:AnyObject] else { return }
+
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/PointGeoJSON") else { return }
             
         let geoJSON = Geometry(dictionary: dictionary)
         
@@ -58,10 +55,7 @@ class GeoJSONTests: XCTestCase {
     
     func testMultiPointAllocation() {
         
-        let bundle = NSBundle(forClass: GeoJSONTests.self)
-        
-        guard let resource = bundle.pathForResource("Test GeoJSON/MultiPointGeoJSON", ofType: "geojson"), data = NSData(contentsOfFile: resource) else { return }
-        guard let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String:AnyObject] else { return }
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiPointGeoJSON") else { return }
         
         let geoJSON = Geometry(dictionary: dictionary)
         
@@ -105,10 +99,7 @@ class GeoJSONTests: XCTestCase {
     
     func testLineStringAllocation() {
         
-        let bundle = NSBundle(forClass: GeoJSONTests.self)
-        
-        guard let resource = bundle.pathForResource("Test GeoJSON/LineStringGeoJSON", ofType: "geojson"), data = NSData(contentsOfFile: resource) else { return }
-        guard let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String:AnyObject] else { return }
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/LineStringGeoJSON") else { return }
         
         let geoJSON = Geometry(dictionary: dictionary)
         
@@ -141,11 +132,7 @@ class GeoJSONTests: XCTestCase {
     
     func testMultiLineStringAllocation() {
         
-        let bundle = NSBundle(forClass: GeoJSONTests.self)
-        
-        guard let resource = bundle.pathForResource("Test GeoJSON/MultiLineStringGeoJSON", ofType: "geojson"), data = NSData(contentsOfFile: resource) else { return }
-        guard let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String:AnyObject] else { return }
-        
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiLineStringGeoJSON") else { return }
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiCoordinates, "MultiCoordinates was unexpectedly nil")
@@ -184,9 +171,7 @@ class GeoJSONTests: XCTestCase {
         
         let bundle = NSBundle(forClass: GeoJSONTests.self)
         
-        guard let resource = bundle.pathForResource("Test GeoJSON/PolygonGeoJSON", ofType: "geojson"), data = NSData(contentsOfFile: resource) else { return }
-        guard let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String:AnyObject] else { return }
-        
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/PolygonGeoJSON") else { return }
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiCoordinates, "MultiCoordinates was unexpectedly nil")
@@ -217,11 +202,7 @@ class GeoJSONTests: XCTestCase {
     
     func testMultiPolygonAllocation() {
         
-        let bundle = NSBundle(forClass: GeoJSONTests.self)
-        
-        guard let resource = bundle.pathForResource("Test GeoJSON/MultiPolygonGeoJSON", ofType: "geojson"), data = NSData(contentsOfFile: resource) else { return }
-        guard let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String:AnyObject] else { return }
-        
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiPolygonGeoJSON") else { return }        
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiMultiCoordinates, "MultiMultiCoordinates was unexpectedly nil")
