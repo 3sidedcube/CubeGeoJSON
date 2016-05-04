@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import MapKit
 @testable import GeoJSON
 
 class GeoJSONTests: TestCore {
@@ -202,7 +203,7 @@ class GeoJSONTests: TestCore {
     
     func testMultiPolygonAllocation() {
         
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiPolygonGeoJSON") else { return }        
+        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiPolygonGeoJSON") else { return }
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiMultiCoordinates, "MultiMultiCoordinates was unexpectedly nil")
