@@ -25,7 +25,7 @@ class TestCore: XCTestCase {
      */
     func loadDictionaryForFile(name: String!) -> [String: AnyObject]? {
         
-        let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "json")
+        let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "geojson")
         
         if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
             
