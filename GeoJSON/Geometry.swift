@@ -125,7 +125,7 @@ public class Position: NSObject {
     /**
      Initialises and returns a Position object from an array of Double types
      */
-    init(coordinates:[Double]) {
+    public init(coordinates:[Double]) {
         
         latitude = coordinates.count > 1 ? coordinates[1] : 0.0
         longitude = coordinates.count > 0 ? coordinates[0] : 0.0
