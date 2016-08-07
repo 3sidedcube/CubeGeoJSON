@@ -19,8 +19,8 @@ public class Polygon: MKPolygon {
      
      - Parameter coordinates: An array of coordinates representing the Polygon
      */
-    public static func polygon(coordinates:[Position]) -> Polygon {
-        return self.polygon(coordinates: coordinates, order: .LngLat, interiorPolygons:[])
+    public static func polygon(_ coordinates:[Position]) -> Polygon {
+        return self.polygon(coordinates: coordinates, order: .lngLat, interiorPolygons:[])
     }
     
     /**
@@ -29,7 +29,7 @@ public class Polygon: MKPolygon {
      - Parameter coordinates: An array of coordinates representing the Polygon
      - Parameter order: The order that the coordinates appear in
      */
-    public static func polygon(coordinates:[Position], order:CoordinateOrder) -> Polygon {
+    public static func polygon(_ coordinates:[Position], order:CoordinateOrder) -> Polygon {
         return self.polygon(coordinates: coordinates, order:order, interiorPolygons:[])
     }
     
@@ -60,8 +60,8 @@ public class Polyline: MKPolyline {
      
      - Parameter coordinates: An array of coordinates representing the Polyline
      */
-    public static func polyline(coordinates:[Position]) -> Polyline {
-        return self.polyline(coordinates: coordinates, order: .LngLat)
+    public static func polyline(_ coordinates:[Position]) -> Polyline {
+        return self.polyline(coordinates: coordinates, order: .lngLat)
     }
     
     /**
@@ -91,8 +91,8 @@ public class Circle: MKCircle {
      - Parameter coordinate: The center coordinate of the circle
      - Parameter radius: The radius of the circle
      */
-    public static func circle(coordinate:Position, radius:CLLocationDistance) -> Circle {
-        return self.circle(coordinate, radius:radius, order: .LngLat)
+    public static func circle(_ coordinate:Position, radius:CLLocationDistance) -> Circle {
+        return self.circle(coordinate, radius:radius, order: .lngLat)
     }
     
     /**
@@ -102,8 +102,8 @@ public class Circle: MKCircle {
      - Parameter radius: The radius of the circle
      - Parameter order: The order that the coordinates appear in
      */
-    public static func circle(coordinate:Position, radius:CLLocationDistance, order:CoordinateOrder) -> Circle {
-        return Circle(centerCoordinate: coordinate.coordinate(order), radius: radius)
+    public static func circle(_ coordinate:Position, radius:CLLocationDistance, order:CoordinateOrder) -> Circle {
+        return Circle(center: coordinate.coordinate(order), radius: radius)
     }
 }
 
@@ -117,8 +117,8 @@ public class PointShape: MKPointAnnotation {
      
      - Parameter coordinate: The coordinate of the annotation
      */
-    public static func point(coordinate:Position) -> PointShape {
-        return self.point(coordinate, order: .LngLat)
+    public static func point(_ coordinate:Position) -> PointShape {
+        return self.point(coordinate, order: .lngLat)
     }
     /**
      Returns a new instance from a position object
@@ -126,7 +126,7 @@ public class PointShape: MKPointAnnotation {
      - Parameter coordinate: The coordinate of the annotation
      - Parameter order: The coordinate order of the position object
      */
-    public static func point(coordinate:Position, order: CoordinateOrder) -> PointShape {
+    public static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
         let point = PointShape()
         point.coordinate = coordinate.coordinate(order)
         return point

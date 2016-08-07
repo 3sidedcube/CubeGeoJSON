@@ -16,11 +16,11 @@ import MapKit
     /**
      Ordered latitude then longitude
      */
-    case LatLng
+    case latLng
     /**
      Ordered longitude then latitude
      */
-    case LngLat
+    case lngLat
 }
 
 /**
@@ -69,11 +69,11 @@ public enum GeometryType: String {
     case Circle
 }
 
-func DegreesToRadians (value:Double) -> Double {
+func DegreesToRadians (_ value:Double) -> Double {
     return value * M_PI / 180.0
 }
 
-func RadiansToDegrees (value:Double) -> Double {
+func RadiansToDegrees (_ value:Double) -> Double {
     return value * 180.0 / M_PI
 }
 
@@ -137,13 +137,13 @@ public class Position: NSObject {
      - Parameter coordinateOrder: The coordinate order to create the CLLocationCoordinate2D with
      - Returns: Returns a CLLocationCoordinate2D
      */
-    public func coordinate(coordinateOrder: CoordinateOrder) -> CLLocationCoordinate2D {
+    public func coordinate(_ coordinateOrder: CoordinateOrder) -> CLLocationCoordinate2D {
         
         // Because long lat matches what we assumed the order was on init we return that correctly
         switch coordinateOrder {
-        case .LngLat:
+        case .lngLat:
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        case .LatLng:
+        case .latLng:
             return CLLocationCoordinate2D(latitude: longitude, longitude: latitude)
         }
     }
@@ -165,7 +165,7 @@ public class Position: NSObject {
      - Parameter positions: The array of Position objects to return the center point for
      - Returns: A Position object at the center of the given positions
      */
-    public static func center(positions:[Position]) -> Position {
+    public static func center(_ positions:[Position]) -> Position {
         
         if (positions.count == 1) {
             return positions.first!
@@ -382,23 +382,23 @@ public class Geometry: NSObject {
      
      - Parameter dictionary: The dictionary to process shapes for
      */
-    private func processShapes(dictionary: [String:AnyObject]) {
+    private func processShapes(_ dictionary: [String:AnyObject]) {
         
         switch type {
             
         case .Point, .MultiPoint:
             
-            shapes = coordinates?.map({ return PointShape.point($0, order: .LngLat) })
+            shapes = coordinates?.map({ return PointShape.point($0, order: .lngLat) })
             
         case .LineString:
             
             guard let coords = coordinates else { break }
-            shapes = [Polyline.polyline(coordinates: coords, order: .LngLat)]
+            shapes = [Polyline.polyline(coordinates: coords, order: .lngLat)]
             
         case .MultiLineString:
             
             shapes = multiCoordinates?.map({
-                return Polyline.polyline(coordinates: $0, order: .LngLat)
+                return Polyline.polyline(coordinates: $0, order: .lngLat)
             })
             
         case .Polygon:
@@ -430,7 +430,7 @@ public class Geometry: NSObject {
             for geometry in geometries! {
                 
                 if let gShapes = geometry.shapes {
-                    aShapes.appendContentsOf(gShapes)
+                    aShapes.append(contentsOf: gShapes)
                 }
             }
             shapes = aShapes
@@ -445,7 +445,7 @@ public class Geometry: NSObject {
                 radius = 1609.344
             }
             
-            shapes = [Circle.circle(firstCoord, radius: radius, order: .LngLat)]
+            shapes = [Circle.circle(firstCoord, radius: radius, order: .lngLat)]
             
         default: break
             
@@ -457,7 +457,7 @@ public class Geometry: NSObject {
      
      - Parameter coords: The array of array of coordinates to process
      */
-    private func processPolygon(coords:[[Position]]) -> Polygon? {
+    private func processPolygon(_ coords:[[Position]]) -> Polygon? {
         
         guard let outerCoords = coords.first else { return nil }
         
@@ -465,10 +465,10 @@ public class Geometry: NSObject {
         aCoords.removeFirst()
         
         let innerPolygons = aCoords.map({
-            return Polygon.polygon($0, order: .LngLat)
+            return Polygon.polygon($0, order: .lngLat)
         })
         
-        return Polygon.polygon(coordinates: outerCoords, order: .LngLat, interiorPolygons:innerPolygons)
+        return Polygon.polygon(coordinates: outerCoords, order: .lngLat, interiorPolygons:innerPolygons)
     }
     
     /**
@@ -476,7 +476,7 @@ public class Geometry: NSObject {
      
      - Parameter coords: The coordinates property to process
      */
-    private func processCoordinates(coords:[AnyObject]?) {
+    private func processCoordinates(_ coords:[AnyObject]?) {
         
         if let singleCoord = coords as? [Double] {
             
@@ -556,7 +556,7 @@ public class Geometry: NSObject {
     /**
      For our objective-c friends this method allows you to use the + property to append a new position object to a Geometry
      */
-    public class func append(position: Position, original: Geometry) -> Geometry {
+    public class func append(_ position: Position, original: Geometry) -> Geometry {
         return original + position
     }
 }
@@ -600,7 +600,7 @@ public func +(left: Geometry, right: Position) -> Geometry {
     case .Polygon:
         if var multiCoords = oldGeometry.multiCoordinates, lastArray = multiCoords.last {
             
-            lastArray.insert(right, atIndex: lastArray.count - 1)
+            lastArray.insert(right, at: lastArray.count - 1)
             multiCoords.removeLast()
             multiCoords.append(lastArray)
             oldGeometry.multiCoordinates = multiCoords
