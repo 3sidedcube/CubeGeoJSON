@@ -300,12 +300,11 @@ public class Geometry: NSObject {
                 
             } else if let coords = coordinates {
                 
-                if type == .Circle {
+                if type == .Circle || type == .Point {
                     
                     if let firstCoord = coords.first {
                         dict["coordinates"] = firstCoord.dictionaryRepresentation
                     }
-                    
                 } else {
                     dict["coordinates"] = coords.map({ return $0.dictionaryRepresentation })
                 }
