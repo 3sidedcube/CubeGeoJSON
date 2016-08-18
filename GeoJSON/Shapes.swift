@@ -12,14 +12,14 @@ import MapKit
 /**
  A subclass of MKPolygon for easy allocation from GeoJSON
  */
-public class Polygon: MKPolygon {
+open class Polygon: MKPolygon {
     
     /**
      Returns a new instance from an array of Position objects
      
      - Parameter coordinates: An array of coordinates representing the Polygon
      */
-    public static func polygon(_ coordinates:[Position]) -> Polygon {
+    open static func polygon(_ coordinates:[Position]) -> Polygon {
         return self.polygon(coordinates: coordinates, order: .lngLat, interiorPolygons:[])
     }
     
@@ -29,7 +29,7 @@ public class Polygon: MKPolygon {
      - Parameter coordinates: An array of coordinates representing the Polygon
      - Parameter order: The order that the coordinates appear in
      */
-    public static func polygon(_ coordinates:[Position], order:CoordinateOrder) -> Polygon {
+    open static func polygon(_ coordinates:[Position], order:CoordinateOrder) -> Polygon {
         return self.polygon(coordinates: coordinates, order:order, interiorPolygons:[])
     }
     
@@ -40,7 +40,7 @@ public class Polygon: MKPolygon {
      - Parameter order: The order that the coordinates appear in
      - Parameter interiorPolygons: Any interior polygon objects that the polygon has
      */
-    public static func polygon(coordinates coords:[Position], order:CoordinateOrder, interiorPolygons:[Polygon]?) -> Polygon {
+    open static func polygon(coordinates coords:[Position], order:CoordinateOrder, interiorPolygons:[Polygon]?) -> Polygon {
         
         var coordinates: [CLLocationCoordinate2D] = coords.map({
             return $0.coordinate(order)
@@ -53,14 +53,14 @@ public class Polygon: MKPolygon {
 /**
  A subclass of MKPolyline for easy allocation from GeoJSON
  */
-public class Polyline: MKPolyline {
+open class Polyline: MKPolyline {
     
     /**
      Returns a new instance from an array of Position objects
      
      - Parameter coordinates: An array of coordinates representing the Polyline
      */
-    public static func polyline(_ coordinates:[Position]) -> Polyline {
+    open static func polyline(_ coordinates:[Position]) -> Polyline {
         return self.polyline(coordinates: coordinates, order: .lngLat)
     }
     
@@ -70,7 +70,7 @@ public class Polyline: MKPolyline {
      - Parameter coordinates: An array of coordinates representing the Polyline
      - Parameter order: The order that the coordinates appear in
      */
-    public static func polyline(coordinates coords:[Position], order: CoordinateOrder) -> Polyline {
+    open static func polyline(coordinates coords:[Position], order: CoordinateOrder) -> Polyline {
         
         var coordinates: [CLLocationCoordinate2D] = coords.map({
             return $0.coordinate(order)
@@ -83,7 +83,7 @@ public class Polyline: MKPolyline {
 /**
  A subclass of MKCircle for easy allocation from GeoJSON
  */
-public class Circle: MKCircle {
+open class Circle: MKCircle {
     
     /**
      Returns a new instance from an array of Position objects
@@ -91,7 +91,7 @@ public class Circle: MKCircle {
      - Parameter coordinate: The center coordinate of the circle
      - Parameter radius: The radius of the circle
      */
-    public static func circle(_ coordinate:Position, radius:CLLocationDistance) -> Circle {
+    open static func circle(_ coordinate:Position, radius:CLLocationDistance) -> Circle {
         return self.circle(coordinate, radius:radius, order: .lngLat)
     }
     
@@ -102,7 +102,7 @@ public class Circle: MKCircle {
      - Parameter radius: The radius of the circle
      - Parameter order: The order that the coordinates appear in
      */
-    public static func circle(_ coordinate:Position, radius:CLLocationDistance, order:CoordinateOrder) -> Circle {
+    open static func circle(_ coordinate:Position, radius:CLLocationDistance, order:CoordinateOrder) -> Circle {
         return Circle(center: coordinate.coordinate(order), radius: radius)
     }
 }
@@ -110,14 +110,14 @@ public class Circle: MKCircle {
 /**
  A subclass of MKPointAnnotation for easy allocation from GeoJSON
  */
-public class PointShape: MKPointAnnotation {
+open class PointShape: MKPointAnnotation {
     
     /**
      Returns a new instance from a position object
      
      - Parameter coordinate: The coordinate of the annotation
      */
-    public static func point(_ coordinate:Position) -> PointShape {
+    open static func point(_ coordinate:Position) -> PointShape {
         return self.point(coordinate, order: .lngLat)
     }
     /**
@@ -126,7 +126,7 @@ public class PointShape: MKPointAnnotation {
      - Parameter coordinate: The coordinate of the annotation
      - Parameter order: The coordinate order of the position object
      */
-    public static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
+    open static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
         let point = PointShape()
         point.coordinate = coordinate.coordinate(order)
         return point
