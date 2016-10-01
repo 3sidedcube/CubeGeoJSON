@@ -34,39 +34,39 @@ public enum GeometryType: String {
     /**
      We're not quite sure how you got here, but you seem to have managed to. Congrats
      */
-    case Unknown
+    case unknown
     /**
      A simple point.
      */
-    case Point
+    case point
     /**
      A collection of separate points.
      */
-    case MultiPoint
+    case multiPoint
     /**
      A collection of points representing a line between them.
      */
-    case LineString
+    case lineString
     /**
      A collection of LineStrings representing multiple paths on a map.
      */
-    case MultiLineString
+    case multiLineString
     /**
      A simple polygon, the first array of coordinates will be used as the outer polygon, and any further arrays will be cut out from the interior of that outer polygon
      */
-    case Polygon
+    case polygon
     /**
      A collection of Polygons representing multiple polygons on a map.
      */
-    case MultiPolygon
+    case multiPolygon
     /**
      A collection of any of the other types of GeoJSON geometry
      */
-    case GeometryCollection
+    case geometryCollection
     /**
      A custom GeoJSON object with a single position and a radius
      */
-    case Circle
+    case circle
 }
 
 func DegreesToRadians (_ value:Double) -> Double {
@@ -225,7 +225,7 @@ open class Geometry: NSObject {
             if let aType = GeometryType(rawValue: typeString) {
                 type = aType
             } else {
-                type = .Unknown
+                type = .unknown
             }
         }
     }
@@ -287,11 +287,11 @@ open class Geometry: NSObject {
      
      - Warning: This is a get method, so should not be called too frequently, for large Geometry objects it could become intensive
      */
-    open var dictionaryRepresentation: [String:Any] {
+    open var dictionaryRepresentation: [AnyHashable : Any] {
         
         get {
             
-            var dict:[String:Any] = [:]
+            var dict:[AnyHashable : Any] = [:]
             dict["type"] = type.rawValue
             
             if let geos = geometries {
@@ -300,7 +300,7 @@ open class Geometry: NSObject {
                 
             } else if let coords = coordinates {
                 
-                if type == .Circle || type == .Point {
+                if type == .circle || type == .point {
                     
                     if let firstCoord = coords.first {
                         dict["coordinates"] = firstCoord.dictionaryRepresentation
@@ -336,7 +336,7 @@ open class Geometry: NSObject {
                 
             }
             
-            if type == .Circle {
+            if type == .circle {
                 dict["radius"] = radius
             }
             
@@ -352,12 +352,12 @@ open class Geometry: NSObject {
     /**
      Initialises and populates a new Geometry object from a GeoJSON dictionary
      */
-    public init(dictionary:[String:Any]) {
+    public init(dictionary: [AnyHashable : Any]) {
         
         guard let typeStr = dictionary["type"] as? String, let geoType = GeometryType(rawValue: typeStr) else {
             
             typeString = "Unknown"
-            type = .Unknown
+            type = .unknown
             radius = 0
             super.init()
             return
@@ -368,7 +368,7 @@ open class Geometry: NSObject {
         radius = 0
         super.init()
         
-        if let coords = dictionary["coordinates"] as? [AnyObject] {
+        if let coords = dictionary["coordinates"] as? [Any] {
             processCoordinates(coords)
         }
         
@@ -381,31 +381,31 @@ open class Geometry: NSObject {
      
      - Parameter dictionary: The dictionary to process shapes for
      */
-    fileprivate func processShapes(_ dictionary: [String:Any]) {
+    fileprivate func processShapes(_ dictionary: [AnyHashable : Any]) {
         
         switch type {
             
-        case .Point, .MultiPoint:
+        case .point, .multiPoint:
             
             shapes = coordinates?.map({ return PointShape.point($0, order: .lngLat) })
             
-        case .LineString:
+        case .lineString:
             
             guard let coords = coordinates else { break }
             shapes = [Polyline.polyline(coordinates: coords, order: .lngLat)]
             
-        case .MultiLineString:
+        case .multiLineString:
             
             shapes = multiCoordinates?.map({
                 return Polyline.polyline(coordinates: $0, order: .lngLat)
             })
             
-        case .Polygon:
+        case .polygon:
             
             guard let multiCoords = multiCoordinates, let polygon = processPolygon(multiCoords) else { break }
             shapes = [polygon]
             
-        case .MultiPolygon:
+        case .multiPolygon:
             
             guard let multiMultiCoords = multiMultiCoordinates else { break }
             
@@ -418,7 +418,7 @@ open class Geometry: NSObject {
             }
             shapes = polygons
             
-        case .GeometryCollection:
+        case .geometryCollection:
             
             guard let geoms = dictionary["geometries"] as? [[String:AnyObject]] else { break }
             geometries = geoms.map({
@@ -434,7 +434,7 @@ open class Geometry: NSObject {
             }
             shapes = aShapes
             
-        case .Circle:
+        case .circle:
             
             guard let coords = coordinates, let firstCoord = coords.first else { break }
             
@@ -475,7 +475,7 @@ open class Geometry: NSObject {
      
      - Parameter coords: The coordinates property to process
      */
-    fileprivate func processCoordinates(_ coords:[AnyObject]?) {
+    fileprivate func processCoordinates(_ coords: [Any]?) {
         
         if let singleCoord = coords as? [Double] {
             
@@ -569,10 +569,10 @@ public func +(left: Geometry, right: Position) -> Geometry {
     let oldGeometry = Geometry(dictionary: left.dictionaryRepresentation)
     
     switch oldGeometry.type {
-    case .Circle, .Unknown, .GeometryCollection, .MultiPolygon:
+    case .circle, .unknown, .geometryCollection, .multiPolygon:
         // Do nothing
         break
-    case .Point, .MultiPoint:
+    case .point, .multiPoint:
         typeString = "MultiPoint"
         if var coords = oldGeometry.coordinates {
             coords.append(right)
@@ -581,13 +581,13 @@ public func +(left: Geometry, right: Position) -> Geometry {
         }
         // Turn into a multi-point
         break
-    case .LineString:
+    case .lineString:
         if var coords = oldGeometry.coordinates {
             coords.append(right)
         } else {
             left.coordinates = [right]
         }
-    case .MultiLineString:
+    case .multiLineString:
         if var multiCoords = oldGeometry.multiCoordinates, var lastArray = multiCoords.last {
             
             lastArray.append(right)
@@ -596,7 +596,7 @@ public func +(left: Geometry, right: Position) -> Geometry {
             oldGeometry.multiCoordinates = multiCoords
         }
         break
-    case .Polygon:
+    case .polygon:
         if var multiCoords = oldGeometry.multiCoordinates, var lastArray = multiCoords.last {
             
             lastArray.insert(right, at: lastArray.count - 1)

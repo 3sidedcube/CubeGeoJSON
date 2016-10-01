@@ -12,6 +12,7 @@ import MapKit
 /**
  A subclass of MKPolygon for easy allocation from GeoJSON
  */
+@objc(TSCPolygon)
 open class Polygon: MKPolygon {
     
     /**
