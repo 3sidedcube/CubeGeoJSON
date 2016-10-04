@@ -34,39 +34,39 @@ public enum GeometryType: String {
     /**
      We're not quite sure how you got here, but you seem to have managed to. Congrats
      */
-    case unknown
+    case unknown = "Unknown"
     /**
      A simple point.
      */
-    case point
+    case point = "Point"
     /**
      A collection of separate points.
      */
-    case multiPoint
+    case multiPoint = "MultiPoint"
     /**
      A collection of points representing a line between them.
      */
-    case lineString
+    case lineString = "LineString"
     /**
      A collection of LineStrings representing multiple paths on a map.
      */
-    case multiLineString
+    case multiLineString = "MultiLineString"
     /**
      A simple polygon, the first array of coordinates will be used as the outer polygon, and any further arrays will be cut out from the interior of that outer polygon
      */
-    case polygon
+    case polygon = "Polygon"
     /**
      A collection of Polygons representing multiple polygons on a map.
      */
-    case multiPolygon
+    case multiPolygon = "MultiPolygon"
     /**
      A collection of any of the other types of GeoJSON geometry
      */
-    case geometryCollection
+    case geometryCollection = "GeometryCollection"
     /**
      A custom GeoJSON object with a single position and a radius
      */
-    case circle
+    case circle = "Circle"
 }
 
 func DegreesToRadians (_ value:Double) -> Double {
