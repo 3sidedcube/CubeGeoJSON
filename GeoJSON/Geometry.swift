@@ -558,8 +558,67 @@ open class Geometry: NSObject {
     open class func append(_ position: Position, original: Geometry) -> Geometry {
         return original + position
     }
+    
+    open func roughlyEqual(other: Geometry) -> Bool {
+        return self ~= other
+    }
 }
 
+infix operator <> { associativity left precedence 160 }
+
+private func <>(left: [Any], right: [Any]) -> Bool {
+    
+    if left.count == right.count {
+        
+        if let leftArray = left as? [[Any]], let rightArray = right as? [[Any]] {
+            
+            for (index, leftSubArray) in leftArray.enumerated() { // Check each sub array [Position]'s length
+                
+                let rightSubArray = rightArray[index]
+                if !(rightSubArray <> leftSubArray) {
+                    return false
+                }
+            }
+        }
+        
+        return true
+    }
+    
+    return false
+}
+
+infix operator ~= { associativity left precedence 160 }
+public func ~=(left: Geometry, right: Geometry) -> Bool {
+    
+    if left.type != right.type {
+        return false
+    }
+    
+    let type = left.type
+    
+    // If the left and right geometries don't have same amount of coordinates, can't be the same
+    if let leftCoords = left.coordinates, let rightCoords = right.coordinates, !(leftCoords <> rightCoords) {
+        return false
+    }
+    
+    // Compare multi coordinate arrays
+    if let leftMultiCoords = left.multiCoordinates, let rightMultiCoords = right.multiCoordinates, !(leftMultiCoords <> rightMultiCoords) {
+        return false
+    }
+    
+    // Compare multi coordinate arrays
+    if let leftMultiMultiCoords = left.multiMultiCoordinates, let rightMultiMultiCoords = right.multiMultiCoordinates, !(leftMultiMultiCoords <> rightMultiMultiCoords) {
+        return false
+    }
+    
+    // As we are doing a quick comparison, we'll match on the centercoordinate if they both exist! This way we avoid any overhead on calculations!
+    if let leftCoord = left.centerCoordinate, let rightCoord = right.centerCoordinate, type != .circle && leftCoord == rightCoord {
+        return true
+    }
+    
+    // Always default back to they're not equal!
+    return false
+}
 /**
  Allows the plus operator to add a Position object to a Geometry object
  */

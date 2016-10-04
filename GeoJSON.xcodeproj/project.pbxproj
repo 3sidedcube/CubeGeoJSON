@@ -20,6 +20,8 @@
 		B16B17FB1D9FCAB100B2EB68 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933421CD8A46600A5D192 /* Geometry.swift */; };
 		B16B17FC1D9FCAB100B2EB68 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86421CD8BACE0000C7E6 /* Shapes.swift */; };
 		B1A5CC611CD9039F004A22C7 /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A5CC601CD9039F004A22C7 /* TestCore.swift */; };
+		B1D85EA91DA126F700469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
+		B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		B16B17F11D9FCAAA00B2EB68 /* GeoJSONMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONMacTests.swift; sourceTree = "<group>"; };
 		B16B17F31D9FCAAA00B2EB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1A5CC601CD9039F004A22C7 /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
+		B1D85EA81DA126F700469588 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,7 @@
 				B14D86421CD8BACE0000C7E6 /* Shapes.swift */,
 				B159331D1CD8A13B00A5D192 /* GeoJSON.h */,
 				B159331F1CD8A13B00A5D192 /* Info.plist */,
+				B1D85EA81DA126F700469588 /* Feature.swift */,
 			);
 			path = GeoJSON;
 			sourceTree = "<group>";
@@ -336,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D85EA91DA126F700469588 /* Feature.swift in Sources */,
 				B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */,
 				B15933431CD8A46600A5D192 /* Geometry.swift in Sources */,
 			);
@@ -355,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */,
 				B16B17FB1D9FCAB100B2EB68 /* Geometry.swift in Sources */,
 				B16B17FC1D9FCAB100B2EB68 /* Shapes.swift in Sources */,
 			);
@@ -551,7 +557,7 @@
 				INFOPLIST_FILE = GeoJSONMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -578,7 +584,7 @@
 				INFOPLIST_FILE = GeoJSONMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -667,6 +673,7 @@
 				B16B17F61D9FCAAA00B2EB68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B16B17FA1D9FCAAA00B2EB68 /* Build configuration list for PBXNativeTarget "GeoJSONMacTests" */ = {
 			isa = XCConfigurationList;
@@ -675,6 +682,7 @@
 				B16B17F81D9FCAAA00B2EB68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
