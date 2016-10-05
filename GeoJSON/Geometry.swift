@@ -201,6 +201,10 @@ open class Position: NSObject {
     }
 }
 
+public func ==(left: Position, right: Position) -> Bool {
+    return (left.longitude == right.longitude) && (left.latitude == right.latitude)
+}
+
 /**
  A class representing any Geometry from the GeoJSON specification
  
