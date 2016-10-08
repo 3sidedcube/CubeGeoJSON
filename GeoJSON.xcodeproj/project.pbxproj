@@ -274,6 +274,7 @@
 					B16B17E31D9FCAA900B2EB68 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = P645CBFH93;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					B16B17EB1D9FCAAA00B2EB68 = {
