@@ -376,7 +376,15 @@ open class Geometry: NSObject {
             processCoordinates(coords)
         }
         
-        processShapes(dictionary)
+        if type == .circle {
+            if let rad = dictionary["radius"] as? Double {
+                radius = rad
+            } else {
+                radius = 1609.344
+            }
+        }
+        
+        processShapes()
         processCenter()
     }
     
@@ -385,7 +393,7 @@ open class Geometry: NSObject {
      
      - Parameter dictionary: The dictionary to process shapes for
      */
-    fileprivate func processShapes(_ dictionary: [AnyHashable : Any]) {
+    public func processShapes() {
         
         switch type {
             
@@ -424,7 +432,7 @@ open class Geometry: NSObject {
             
         case .geometryCollection:
             
-            guard let geoms = dictionary["geometries"] as? [[String:AnyObject]] else { break }
+            guard let geoms = self.dictionaryRepresentation["geometries"] as? [[String:AnyObject]] else { break }
             geometries = geoms.map({
                 return Geometry(dictionary: $0)
             })
@@ -441,13 +449,6 @@ open class Geometry: NSObject {
         case .circle:
             
             guard let coords = coordinates, let firstCoord = coords.first else { break }
-            
-            if let rad = dictionary["radius"] as? Double {
-                radius = rad
-            } else {
-                radius = 1609.344
-            }
-            
             shapes = [Circle.circle(firstCoord, radius: radius, order: .lngLat)]
             
         default: break
