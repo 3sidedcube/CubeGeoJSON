@@ -70,11 +70,11 @@ public enum GeometryType: String {
 }
 
 func DegreesToRadians (_ value:Double) -> Double {
-    return value * M_PI / 180.0
+    return value * Double.pi / 180.0
 }
 
 func RadiansToDegrees (_ value:Double) -> Double {
-    return value * 180.0 / M_PI
+    return value * 180.0 / Double.pi
 }
 
 /**
@@ -569,7 +569,13 @@ open class Geometry: NSObject {
     }
 }
 
-infix operator <> { associativity left precedence 160 }
+// module A
+precedencegroup Equivalence {
+	associativity: left
+	higherThan: ComparisonPrecedence
+}
+
+infix operator <> : Equivalence
 
 private func <>(left: [Any], right: [Any]) -> Bool {
     
@@ -592,7 +598,8 @@ private func <>(left: [Any], right: [Any]) -> Bool {
     return false
 }
 
-infix operator ~= { associativity left precedence 160 }
+infix operator ~= : Equivalence
+
 public func ~=(left: Geometry, right: Geometry) -> Bool {
     
     if left.type != right.type {
