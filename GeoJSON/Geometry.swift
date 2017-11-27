@@ -598,8 +598,6 @@ private func <>(left: [Any], right: [Any]) -> Bool {
     return false
 }
 
-infix operator ~= : Equivalence
-
 public func ~=(left: Geometry, right: Geometry) -> Bool {
     
     if left.type != right.type {
