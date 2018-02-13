@@ -16,11 +16,11 @@ import MapKit
     /**
      Ordered latitude then longitude
      */
-    case LatLng
+    case latLng
     /**
      Ordered longitude then latitude
      */
-    case LngLat
+    case lngLat
 }
 
 /**
@@ -34,47 +34,47 @@ public enum GeometryType: String {
     /**
      We're not quite sure how you got here, but you seem to have managed to. Congrats
      */
-    case Unknown
+    case unknown = "Unknown"
     /**
      A simple point.
      */
-    case Point
+    case point = "Point"
     /**
      A collection of separate points.
      */
-    case MultiPoint
+    case multiPoint = "MultiPoint"
     /**
      A collection of points representing a line between them.
      */
-    case LineString
+    case lineString = "LineString"
     /**
      A collection of LineStrings representing multiple paths on a map.
      */
-    case MultiLineString
+    case multiLineString = "MultiLineString"
     /**
      A simple polygon, the first array of coordinates will be used as the outer polygon, and any further arrays will be cut out from the interior of that outer polygon
      */
-    case Polygon
+    case polygon = "Polygon"
     /**
      A collection of Polygons representing multiple polygons on a map.
      */
-    case MultiPolygon
+    case multiPolygon = "MultiPolygon"
     /**
      A collection of any of the other types of GeoJSON geometry
      */
-    case GeometryCollection
+    case geometryCollection = "GeometryCollection"
     /**
      A custom GeoJSON object with a single position and a radius
      */
-    case Circle
+    case circle = "Circle"
 }
 
-func DegreesToRadians (value:Double) -> Double {
-    return value * M_PI / 180.0
+func DegreesToRadians (_ value:Double) -> Double {
+    return value * Double.pi / 180.0
 }
 
-func RadiansToDegrees (value:Double) -> Double {
-    return value * 180.0 / M_PI
+func RadiansToDegrees (_ value:Double) -> Double {
+    return value * 180.0 / Double.pi
 }
 
 /**
@@ -82,34 +82,34 @@ func RadiansToDegrees (value:Double) -> Double {
  
  - SeeAlso: [GeoJSON - Position](http://geojson.org/geojson-spec.html#positions)
  */
-public class Position: NSObject {
+open class Position: NSObject {
     
     /**
      The latitudal value of the position
      */
-    public var latitude: CLLocationDegrees
+    open var latitude: CLLocationDegrees
     
     /**
      The longitudinal value of the position
      */
-    public var longitude: CLLocationDegrees
+    open var longitude: CLLocationDegrees
     
     /**
      Helper method for returning a CLLocationCoordinate2D from the object
      */
-    public var coordinate: CLLocationCoordinate2D {
+    open var coordinate: CLLocationCoordinate2D {
         get {
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }
     }
     
-    public override var debugDescription: String {
+    open override var debugDescription: String {
         get {
             return "(\(latitude),\(longitude))"
         }
     }
     
-    public override var description: String {
+    open override var description: String {
         get {
             return "(\(latitude),\(longitude))"
         }
@@ -137,13 +137,13 @@ public class Position: NSObject {
      - Parameter coordinateOrder: The coordinate order to create the CLLocationCoordinate2D with
      - Returns: Returns a CLLocationCoordinate2D
      */
-    public func coordinate(coordinateOrder: CoordinateOrder) -> CLLocationCoordinate2D {
+    open func coordinate(_ coordinateOrder: CoordinateOrder) -> CLLocationCoordinate2D {
         
         // Because long lat matches what we assumed the order was on init we return that correctly
         switch coordinateOrder {
-        case .LngLat:
+        case .lngLat:
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        case .LatLng:
+        case .latLng:
             return CLLocationCoordinate2D(latitude: longitude, longitude: latitude)
         }
     }
@@ -153,7 +153,7 @@ public class Position: NSObject {
      
      - Returns: Returns an array of Doubles
      */
-    public var dictionaryRepresentation: [Double] {
+    open var dictionaryRepresentation: [Double] {
         get {
             return [longitude, latitude]
         }
@@ -165,7 +165,7 @@ public class Position: NSObject {
      - Parameter positions: The array of Position objects to return the center point for
      - Returns: A Position object at the center of the given positions
      */
-    public static func center(positions:[Position]) -> Position {
+    open static func center(_ positions:[Position]) -> Position {
         
         if (positions.count == 1) {
             return positions.first!
@@ -201,31 +201,35 @@ public class Position: NSObject {
     }
 }
 
+public func ==(left: Position, right: Position) -> Bool {
+    return (left.longitude == right.longitude) && (left.latitude == right.latitude)
+}
+
 /**
  A class representing any Geometry from the GeoJSON specification
  
  This geometry object will recursively allocate any child geometries, and will also create MKShape objects where it can to represent the GeoJSON parsed
  */
-public class Geometry: NSObject {
+open class Geometry: NSObject {
     
     /**
      The geometry type of the GeoJSON Geometry
      */
-    public var type: GeometryType
+    open var type: GeometryType
     
     /**
      For our Objective-C Compatriates, a string representation of the geometry type
      
      - Warning: This also changes `type` when set!
      */
-    public var typeString: String {
+    open var typeString: String {
         
         didSet {
             
             if let aType = GeometryType(rawValue: typeString) {
                 type = aType
             } else {
-                type = .Unknown
+                type = .unknown
             }
         }
     }
@@ -233,7 +237,7 @@ public class Geometry: NSObject {
     /**
      The central coordinate of the geometry object
      */
-    public var centerCoordinate: Position?
+    open var centerCoordinate: Position?
     
     // Which one of these is set depends on the type of the geometry
     
@@ -247,7 +251,7 @@ public class Geometry: NSObject {
      - LineString
      - Circle
      */
-    public var coordinates: [Position]?
+    open var coordinates: [Position]?
     
     /**
      An optional array of array of Position objects
@@ -257,7 +261,7 @@ public class Geometry: NSObject {
      - MultiLineString
      - Polygon
      */
-    public var multiCoordinates: [[Position]]?
+    open var multiCoordinates: [[Position]]?
     
     /**
      An optional array of array of array of Position objects
@@ -266,32 +270,32 @@ public class Geometry: NSObject {
      
      - MultiPolygon
      */
-    public var multiMultiCoordinates: [[[Position]]]?
+    open var multiMultiCoordinates: [[[Position]]]?
     
     /**
      An optional array of geometry objects
      
      This should be non-nil for GeometryCollection geometry types
      */
-    public var geometries: [Geometry]?
+    open var geometries: [Geometry]?
     
     /**
      The radius of the geometry object
      
      - Note: This should only be non-zero for cirlce geometry types
      */
-    public var radius: Double
+    open var radius: Double
     
     /**
      A JSON representation of the original GeoJSON for this geometry object
      
      - Warning: This is a get method, so should not be called too frequently, for large Geometry objects it could become intensive
      */
-    public var dictionaryRepresentation: [String:AnyObject] {
+    open var dictionaryRepresentation: [AnyHashable : Any] {
         
         get {
             
-            var dict:[String:AnyObject] = [:]
+            var dict:[AnyHashable : Any] = [:]
             dict["type"] = type.rawValue
             
             if let geos = geometries {
@@ -300,12 +304,11 @@ public class Geometry: NSObject {
                 
             } else if let coords = coordinates {
                 
-                if type == .Circle || type == .Point {
+                if type == .circle || type == .point {
                     
                     if let firstCoord = coords.first {
                         dict["coordinates"] = firstCoord.dictionaryRepresentation
                     }
-                    
                 } else {
                     dict["coordinates"] = coords.map({ return $0.dictionaryRepresentation })
                 }
@@ -337,7 +340,7 @@ public class Geometry: NSObject {
                 
             }
             
-            if type == .Circle {
+            if type == .circle {
                 dict["radius"] = radius
             }
             
@@ -348,17 +351,17 @@ public class Geometry: NSObject {
     /**
      An optional array of MKShape objects which represent the geometry
      */
-    public var shapes:[MKShape]?
+    open var shapes:[MKShape]?
     
     /**
      Initialises and populates a new Geometry object from a GeoJSON dictionary
      */
-    public init(dictionary:[String:AnyObject]) {
+    public init(dictionary: [AnyHashable : Any]) {
         
-        guard let typeStr = dictionary["type"] as? String, geoType = GeometryType(rawValue: typeStr) else {
+        guard let typeStr = dictionary["type"] as? String, let geoType = GeometryType(rawValue: typeStr) else {
             
             typeString = "Unknown"
-            type = .Unknown
+            type = .unknown
             radius = 0
             super.init()
             return
@@ -369,11 +372,19 @@ public class Geometry: NSObject {
         radius = 0
         super.init()
         
-        if let coords = dictionary["coordinates"] as? [AnyObject] {
+        if let coords = dictionary["coordinates"] as? [Any] {
             processCoordinates(coords)
         }
         
-        processShapes(dictionary)
+        if type == .circle {
+            if let rad = dictionary["radius"] as? Double {
+                radius = rad
+            } else {
+                radius = 1609.344
+            }
+        }
+        
+        processShapes()
         processCenter()
     }
     
@@ -382,31 +393,31 @@ public class Geometry: NSObject {
      
      - Parameter dictionary: The dictionary to process shapes for
      */
-    private func processShapes(dictionary: [String:AnyObject]) {
+    public func processShapes() {
         
         switch type {
             
-        case .Point, .MultiPoint:
+        case .point, .multiPoint:
             
-            shapes = coordinates?.map({ return PointShape.point($0, order: .LngLat) })
+            shapes = coordinates?.map({ return PointShape.point($0, order: .lngLat) })
             
-        case .LineString:
+        case .lineString:
             
             guard let coords = coordinates else { break }
-            shapes = [Polyline.polyline(coordinates: coords, order: .LngLat)]
+            shapes = [Polyline.polyline(coordinates: coords, order: .lngLat)]
             
-        case .MultiLineString:
+        case .multiLineString:
             
             shapes = multiCoordinates?.map({
-                return Polyline.polyline(coordinates: $0, order: .LngLat)
+                return Polyline.polyline(coordinates: $0, order: .lngLat)
             })
             
-        case .Polygon:
+        case .polygon:
             
-            guard let multiCoords = multiCoordinates, polygon = processPolygon(multiCoords) else { break }
+            guard let multiCoords = multiCoordinates, let polygon = processPolygon(multiCoords) else { break }
             shapes = [polygon]
             
-        case .MultiPolygon:
+        case .multiPolygon:
             
             guard let multiMultiCoords = multiMultiCoordinates else { break }
             
@@ -419,9 +430,9 @@ public class Geometry: NSObject {
             }
             shapes = polygons
             
-        case .GeometryCollection:
+        case .geometryCollection:
             
-            guard let geoms = dictionary["geometries"] as? [[String:AnyObject]] else { break }
+            guard let geoms = self.dictionaryRepresentation["geometries"] as? [[String:AnyObject]] else { break }
             geometries = geoms.map({
                 return Geometry(dictionary: $0)
             })
@@ -430,22 +441,15 @@ public class Geometry: NSObject {
             for geometry in geometries! {
                 
                 if let gShapes = geometry.shapes {
-                    aShapes.appendContentsOf(gShapes)
+                    aShapes.append(contentsOf: gShapes)
                 }
             }
             shapes = aShapes
             
-        case .Circle:
+        case .circle:
             
-            guard let coords = coordinates, firstCoord = coords.first else { break }
-            
-            if let rad = dictionary["radius"] as? Double {
-                radius = rad
-            } else {
-                radius = 1609.344
-            }
-            
-            shapes = [Circle.circle(firstCoord, radius: radius, order: .LngLat)]
+            guard let coords = coordinates, let firstCoord = coords.first else { break }
+            shapes = [Circle.circle(firstCoord, radius: radius, order: .lngLat)]
             
         default: break
             
@@ -457,7 +461,7 @@ public class Geometry: NSObject {
      
      - Parameter coords: The array of array of coordinates to process
      */
-    private func processPolygon(coords:[[Position]]) -> Polygon? {
+    fileprivate func processPolygon(_ coords:[[Position]]) -> Polygon? {
         
         guard let outerCoords = coords.first else { return nil }
         
@@ -465,10 +469,10 @@ public class Geometry: NSObject {
         aCoords.removeFirst()
         
         let innerPolygons = aCoords.map({
-            return Polygon.polygon($0, order: .LngLat)
+            return Polygon.polygon($0, order: .lngLat)
         })
         
-        return Polygon.polygon(coordinates: outerCoords, order: .LngLat, interiorPolygons:innerPolygons)
+        return Polygon.polygon(coordinates: outerCoords, order: .lngLat, interiorPolygons:innerPolygons)
     }
     
     /**
@@ -476,7 +480,7 @@ public class Geometry: NSObject {
      
      - Parameter coords: The coordinates property to process
      */
-    private func processCoordinates(coords:[AnyObject]?) {
+    fileprivate func processCoordinates(_ coords: [Any]?) {
         
         if let singleCoord = coords as? [Double] {
             
@@ -519,7 +523,7 @@ public class Geometry: NSObject {
     /**
      Calculates and sets the center of the geometry object
      */
-    private func processCenter() {
+    fileprivate func processCenter() {
         
         if let coords = coordinates {
             
@@ -556,11 +560,75 @@ public class Geometry: NSObject {
     /**
      For our objective-c friends this method allows you to use the + property to append a new position object to a Geometry
      */
-    public class func append(position: Position, original: Geometry) -> Geometry {
+    open class func append(_ position: Position, original: Geometry) -> Geometry {
         return original + position
+    }
+    
+    open func roughlyEqual(other: Geometry) -> Bool {
+        return self ~= other
     }
 }
 
+// module A
+precedencegroup Equivalence {
+	associativity: left
+	higherThan: ComparisonPrecedence
+}
+
+infix operator <> : Equivalence
+
+private func <>(left: [Any], right: [Any]) -> Bool {
+    
+    if left.count == right.count {
+        
+        if let leftArray = left as? [[Any]], let rightArray = right as? [[Any]] {
+            
+            for (index, leftSubArray) in leftArray.enumerated() { // Check each sub array [Position]'s length
+                
+                let rightSubArray = rightArray[index]
+                if !(rightSubArray <> leftSubArray) {
+                    return false
+                }
+            }
+        }
+        
+        return true
+    }
+    
+    return false
+}
+
+public func ~=(left: Geometry, right: Geometry) -> Bool {
+    
+    if left.type != right.type {
+        return false
+    }
+    
+    let type = left.type
+    
+    // If the left and right geometries don't have same amount of coordinates, can't be the same
+    if let leftCoords = left.coordinates, let rightCoords = right.coordinates, !(leftCoords <> rightCoords) {
+        return false
+    }
+    
+    // Compare multi coordinate arrays
+    if let leftMultiCoords = left.multiCoordinates, let rightMultiCoords = right.multiCoordinates, !(leftMultiCoords <> rightMultiCoords) {
+        return false
+    }
+    
+    // Compare multi coordinate arrays
+    if let leftMultiMultiCoords = left.multiMultiCoordinates, let rightMultiMultiCoords = right.multiMultiCoordinates, !(leftMultiMultiCoords <> rightMultiMultiCoords) {
+        return false
+    }
+    
+    // As we are doing a quick comparison, we'll match on the centercoordinate if they both exist! This way we avoid any overhead on calculations!
+    if let leftCoord = left.centerCoordinate, let rightCoord = right.centerCoordinate, type != .circle && leftCoord == rightCoord {
+        return true
+    }
+    
+    // Always default back to they're not equal!
+    return false
+}
 /**
  Allows the plus operator to add a Position object to a Geometry object
  */
@@ -570,10 +638,10 @@ public func +(left: Geometry, right: Position) -> Geometry {
     let oldGeometry = Geometry(dictionary: left.dictionaryRepresentation)
     
     switch oldGeometry.type {
-    case .Circle, .Unknown, .GeometryCollection, .MultiPolygon:
+    case .circle, .unknown, .geometryCollection, .multiPolygon:
         // Do nothing
         break
-    case .Point, .MultiPoint:
+    case .point, .multiPoint:
         typeString = "MultiPoint"
         if var coords = oldGeometry.coordinates {
             coords.append(right)
@@ -582,14 +650,14 @@ public func +(left: Geometry, right: Position) -> Geometry {
         }
         // Turn into a multi-point
         break
-    case .LineString:
+    case .lineString:
         if var coords = oldGeometry.coordinates {
             coords.append(right)
         } else {
             left.coordinates = [right]
         }
-    case .MultiLineString:
-        if var multiCoords = oldGeometry.multiCoordinates, lastArray = multiCoords.last {
+    case .multiLineString:
+        if var multiCoords = oldGeometry.multiCoordinates, var lastArray = multiCoords.last {
             
             lastArray.append(right)
             multiCoords.removeLast()
@@ -597,10 +665,10 @@ public func +(left: Geometry, right: Position) -> Geometry {
             oldGeometry.multiCoordinates = multiCoords
         }
         break
-    case .Polygon:
-        if var multiCoords = oldGeometry.multiCoordinates, lastArray = multiCoords.last {
+    case .polygon:
+        if var multiCoords = oldGeometry.multiCoordinates, var lastArray = multiCoords.last {
             
-            lastArray.insert(right, atIndex: lastArray.count - 1)
+            lastArray.insert(right, at: lastArray.count - 1)
             multiCoords.removeLast()
             multiCoords.append(lastArray)
             oldGeometry.multiCoordinates = multiCoords
