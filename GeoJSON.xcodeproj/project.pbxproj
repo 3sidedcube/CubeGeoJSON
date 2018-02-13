@@ -14,7 +14,14 @@
 		B15933251CD8A13B00A5D192 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159331A1CD8A13B00A5D192 /* GeoJSON.framework */; };
 		B159332A1CD8A13B00A5D192 /* GeoJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */; };
 		B15933431CD8A46600A5D192 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933421CD8A46600A5D192 /* Geometry.swift */; };
+		B16B17ED1D9FCAAA00B2EB68 /* GeoJSONMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16B17E41D9FCAA900B2EB68 /* GeoJSONMac.framework */; };
+		B16B17F21D9FCAAA00B2EB68 /* GeoJSONMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B17F11D9FCAAA00B2EB68 /* GeoJSONMacTests.swift */; };
+		B16B17F41D9FCAAA00B2EB68 /* GeoJSONMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16B17E61D9FCAAA00B2EB68 /* GeoJSONMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B16B17FB1D9FCAB100B2EB68 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933421CD8A46600A5D192 /* Geometry.swift */; };
+		B16B17FC1D9FCAB100B2EB68 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86421CD8BACE0000C7E6 /* Shapes.swift */; };
 		B1A5CC611CD9039F004A22C7 /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A5CC601CD9039F004A22C7 /* TestCore.swift */; };
+		B1D85EA91DA126F700469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
+		B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +31,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B15933191CD8A13B00A5D192;
 			remoteInfo = GeoJSON;
+		};
+		B16B17EE1D9FCAAA00B2EB68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B15933111CD8A13B00A5D192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B16B17E31D9FCAA900B2EB68;
+			remoteInfo = GeoJSONMac;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -38,7 +52,14 @@
 		B15933291CD8A13B00A5D192 /* GeoJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONTests.swift; sourceTree = "<group>"; };
 		B159332B1CD8A13B00A5D192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15933421CD8A46600A5D192 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		B16B17E41D9FCAA900B2EB68 /* GeoJSONMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeoJSONMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B16B17E61D9FCAAA00B2EB68 /* GeoJSONMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoJSONMac.h; sourceTree = "<group>"; };
+		B16B17E71D9FCAAA00B2EB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B16B17EC1D9FCAAA00B2EB68 /* GeoJSONMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoJSONMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B16B17F11D9FCAAA00B2EB68 /* GeoJSONMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONMacTests.swift; sourceTree = "<group>"; };
+		B16B17F31D9FCAAA00B2EB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1A5CC601CD9039F004A22C7 /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
+		B1D85EA81DA126F700469588 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +78,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B16B17E01D9FCAA900B2EB68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16B17E91D9FCAAA00B2EB68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16B17ED1D9FCAAA00B2EB68 /* GeoJSONMac.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +101,8 @@
 			children = (
 				B159331C1CD8A13B00A5D192 /* GeoJSON */,
 				B15933281CD8A13B00A5D192 /* GeoJSONTests */,
+				B16B17E51D9FCAAA00B2EB68 /* GeoJSONMac */,
+				B16B17F01D9FCAAA00B2EB68 /* GeoJSONMacTests */,
 				B159331B1CD8A13B00A5D192 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +112,8 @@
 			children = (
 				B159331A1CD8A13B00A5D192 /* GeoJSON.framework */,
 				B15933241CD8A13B00A5D192 /* GeoJSONTests.xctest */,
+				B16B17E41D9FCAA900B2EB68 /* GeoJSONMac.framework */,
+				B16B17EC1D9FCAAA00B2EB68 /* GeoJSONMacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +125,7 @@
 				B14D86421CD8BACE0000C7E6 /* Shapes.swift */,
 				B159331D1CD8A13B00A5D192 /* GeoJSON.h */,
 				B159331F1CD8A13B00A5D192 /* Info.plist */,
+				B1D85EA81DA126F700469588 /* Feature.swift */,
 			);
 			path = GeoJSON;
 			sourceTree = "<group>";
@@ -101,6 +142,24 @@
 			path = GeoJSONTests;
 			sourceTree = "<group>";
 		};
+		B16B17E51D9FCAAA00B2EB68 /* GeoJSONMac */ = {
+			isa = PBXGroup;
+			children = (
+				B16B17E61D9FCAAA00B2EB68 /* GeoJSONMac.h */,
+				B16B17E71D9FCAAA00B2EB68 /* Info.plist */,
+			);
+			path = GeoJSONMac;
+			sourceTree = "<group>";
+		};
+		B16B17F01D9FCAAA00B2EB68 /* GeoJSONMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				B16B17F11D9FCAAA00B2EB68 /* GeoJSONMacTests.swift */,
+				B16B17F31D9FCAAA00B2EB68 /* Info.plist */,
+			);
+			path = GeoJSONMacTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -109,6 +168,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B159331E1CD8A13B00A5D192 /* GeoJSON.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16B17E11D9FCAA900B2EB68 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16B17F41D9FCAAA00B2EB68 /* GeoJSONMac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,21 +218,69 @@
 			productReference = B15933241CD8A13B00A5D192 /* GeoJSONTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B16B17E31D9FCAA900B2EB68 /* GeoJSONMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B16B17F91D9FCAAA00B2EB68 /* Build configuration list for PBXNativeTarget "GeoJSONMac" */;
+			buildPhases = (
+				B16B17DF1D9FCAA900B2EB68 /* Sources */,
+				B16B17E01D9FCAA900B2EB68 /* Frameworks */,
+				B16B17E11D9FCAA900B2EB68 /* Headers */,
+				B16B17E21D9FCAA900B2EB68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeoJSONMac;
+			productName = GeoJSONMac;
+			productReference = B16B17E41D9FCAA900B2EB68 /* GeoJSONMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B16B17EB1D9FCAAA00B2EB68 /* GeoJSONMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B16B17FA1D9FCAAA00B2EB68 /* Build configuration list for PBXNativeTarget "GeoJSONMacTests" */;
+			buildPhases = (
+				B16B17E81D9FCAAA00B2EB68 /* Sources */,
+				B16B17E91D9FCAAA00B2EB68 /* Frameworks */,
+				B16B17EA1D9FCAAA00B2EB68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B16B17EF1D9FCAAA00B2EB68 /* PBXTargetDependency */,
+			);
+			name = GeoJSONMacTests;
+			productName = GeoJSONMacTests;
+			productReference = B16B17EC1D9FCAAA00B2EB68 /* GeoJSONMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B15933111CD8A13B00A5D192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = threesidedcube;
 				TargetAttributes = {
 					B15933191CD8A13B00A5D192 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 					};
 					B15933231CD8A13B00A5D192 = {
 						CreatedOnToolsVersion = 7.3;
+					};
+					B16B17E31D9FCAA900B2EB68 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = P645CBFH93;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+					};
+					B16B17EB1D9FCAAA00B2EB68 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = P645CBFH93;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -183,6 +298,8 @@
 			targets = (
 				B15933191CD8A13B00A5D192 /* GeoJSON */,
 				B15933231CD8A13B00A5D192 /* GeoJSONTests */,
+				B16B17E31D9FCAA900B2EB68 /* GeoJSONMac */,
+				B16B17EB1D9FCAAA00B2EB68 /* GeoJSONMacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -203,6 +320,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B16B17E21D9FCAA900B2EB68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16B17EA1D9FCAAA00B2EB68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D85EA91DA126F700469588 /* Feature.swift in Sources */,
 				B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */,
 				B15933431CD8A46600A5D192 /* Geometry.swift in Sources */,
 			);
@@ -225,6 +357,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B16B17DF1D9FCAA900B2EB68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */,
+				B16B17FB1D9FCAB100B2EB68 /* Geometry.swift in Sources */,
+				B16B17FC1D9FCAB100B2EB68 /* Shapes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16B17E81D9FCAAA00B2EB68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16B17F21D9FCAAA00B2EB68 /* GeoJSONMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +382,11 @@
 			isa = PBXTargetDependency;
 			target = B15933191CD8A13B00A5D192 /* GeoJSON */;
 			targetProxy = B15933261CD8A13B00A5D192 /* PBXContainerItemProxy */;
+		};
+		B16B17EF1D9FCAAA00B2EB68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B16B17E31D9FCAA900B2EB68 /* GeoJSONMac */;
+			targetProxy = B16B17EE1D9FCAAA00B2EB68 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -274,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -317,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -337,11 +492,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GeoJSON/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSON;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -355,10 +512,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GeoJSON/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSON;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -379,6 +538,104 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellowbrickbear.GeoJSONTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B16B17F51D9FCAAA00B2EB68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P645CBFH93;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GeoJSONMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		B16B17F61D9FCAAA00B2EB68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P645CBFH93;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GeoJSONMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		B16B17F71D9FCAAA00B2EB68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P645CBFH93;
+				INFOPLIST_FILE = GeoJSONMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B16B17F81D9FCAAA00B2EB68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P645CBFH93;
+				INFOPLIST_FILE = GeoJSONMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -408,6 +665,24 @@
 			buildConfigurations = (
 				B15933321CD8A13B00A5D192 /* Debug */,
 				B15933331CD8A13B00A5D192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B16B17F91D9FCAAA00B2EB68 /* Build configuration list for PBXNativeTarget "GeoJSONMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B16B17F51D9FCAAA00B2EB68 /* Debug */,
+				B16B17F61D9FCAAA00B2EB68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B16B17FA1D9FCAAA00B2EB68 /* Build configuration list for PBXNativeTarget "GeoJSONMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B16B17F71D9FCAAA00B2EB68 /* Debug */,
+				B16B17F81D9FCAAA00B2EB68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

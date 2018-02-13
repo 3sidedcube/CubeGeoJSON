@@ -23,14 +23,14 @@ class TestCore: XCTestCase {
     /**
      Loads a dictionary object out of a given JSON file name for testing model allocation
      */
-    func loadDictionaryForFile(name: String!) -> [String: AnyObject]? {
+    func loadDictionaryForFile(name: String!) -> [AnyHashable : Any]? {
         
         let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "geojson")
         
         if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
             
             do {
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [String: AnyObject] {
+                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [AnyHashable : Any] {
                     
                     return jsonObject
                 }
@@ -47,14 +47,14 @@ class TestCore: XCTestCase {
     /**
      Loads a dictionary object out of a given JSON file name for testing model allocation
      */
-    func loadArrayForFile(name: String!) -> [[String: AnyObject]]? {
+    func loadArrayForFile(name: String!) -> [[AnyHashable : Any]]? {
         
         let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "json")
         
         if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
             
             do {
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [[String: AnyObject]] {
+                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [[AnyHashable : Any]] {
                     
                     return jsonObject
                 }
