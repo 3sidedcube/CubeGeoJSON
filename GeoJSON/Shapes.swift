@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 
+#if os(iOS) || os(macOS) || os(tvOS)
 /**
  A subclass of MKPolygon for easy allocation from GeoJSON
  */
@@ -107,7 +108,6 @@ open class Circle: MKCircle {
         return Circle(center: coordinate.coordinate(order), radius: radius)
     }
 }
-
 /**
  A subclass of MKPointAnnotation for easy allocation from GeoJSON
  */
@@ -133,3 +133,40 @@ open class PointShape: MKPointAnnotation {
         return point
     }
 }
+
+#elseif os(watchOS)
+
+/**
+ A subclass of MKPointAnnotation for easy allocation from GeoJSON
+ */
+open class PointShape: NSObject, MKAnnotation {
+    
+    /// The coordinate of the point
+    public var coordinate: CLLocationCoordinate2D
+    
+    override init() {
+        coordinate = kCLLocationCoordinate2DInvalid
+        super.init()
+    }
+    
+    /**
+     Returns a new instance from a position object
+     
+     - Parameter coordinate: The coordinate of the annotation
+     */
+    open static func point(_ coordinate:Position) -> PointShape {
+        return self.point(coordinate, order: .lngLat)
+    }
+    /**
+     Returns a new instance from a position object
+     
+     - Parameter coordinate: The coordinate of the annotation
+     - Parameter order: The coordinate order of the position object
+     */
+    open static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
+        let point = PointShape()
+        point.coordinate = coordinate.coordinate(order)
+        return point
+    }
+}
+#endif

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B120EE6B207B899300A4A7CA /* GeoJSONWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = B120EE69207B899300A4A7CA /* GeoJSONWatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B120EE6F207B899B00A4A7CA /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15933421CD8A46600A5D192 /* Geometry.swift */; };
+		B120EE70207B899B00A4A7CA /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86421CD8BACE0000C7E6 /* Shapes.swift */; };
+		B120EE71207B899B00A4A7CA /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
 		B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86421CD8BACE0000C7E6 /* Shapes.swift */; };
 		B14D86841CD8DE880000C7E6 /* positionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D86831CD8DE880000C7E6 /* positionTests.swift */; };
 		B14D86861CD8E6330000C7E6 /* Test GeoJSON in Resources */ = {isa = PBXBuildFile; fileRef = B14D86851CD8E6330000C7E6 /* Test GeoJSON */; };
@@ -42,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B120EE67207B899300A4A7CA /* GeoJSONWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeoJSONWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B120EE69207B899300A4A7CA /* GeoJSONWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoJSONWatch.h; sourceTree = "<group>"; };
+		B120EE6A207B899300A4A7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14D86421CD8BACE0000C7E6 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		B14D86831CD8DE880000C7E6 /* positionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = positionTests.swift; sourceTree = "<group>"; };
 		B14D86851CD8E6330000C7E6 /* Test GeoJSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test GeoJSON"; sourceTree = "<group>"; };
@@ -63,6 +70,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B120EE63207B899300A4A7CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B15933161CD8A13B00A5D192 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B120EE68207B899300A4A7CA /* GeoJSONWatch */ = {
+			isa = PBXGroup;
+			children = (
+				B120EE69207B899300A4A7CA /* GeoJSONWatch.h */,
+				B120EE6A207B899300A4A7CA /* Info.plist */,
+			);
+			path = GeoJSONWatch;
+			sourceTree = "<group>";
+		};
 		B15933101CD8A13B00A5D192 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +126,7 @@
 				B15933281CD8A13B00A5D192 /* GeoJSONTests */,
 				B16B17E51D9FCAAA00B2EB68 /* GeoJSONMac */,
 				B16B17F01D9FCAAA00B2EB68 /* GeoJSONMacTests */,
+				B120EE68207B899300A4A7CA /* GeoJSONWatch */,
 				B159331B1CD8A13B00A5D192 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +138,7 @@
 				B15933241CD8A13B00A5D192 /* GeoJSONTests.xctest */,
 				B16B17E41D9FCAA900B2EB68 /* GeoJSONMac.framework */,
 				B16B17EC1D9FCAAA00B2EB68 /* GeoJSONMacTests.xctest */,
+				B120EE67207B899300A4A7CA /* GeoJSONWatch.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +188,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		B120EE64207B899300A4A7CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B120EE6B207B899300A4A7CA /* GeoJSONWatch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B15933171CD8A13B00A5D192 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +215,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		B120EE66207B899300A4A7CA /* GeoJSONWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B120EE6E207B899300A4A7CA /* Build configuration list for PBXNativeTarget "GeoJSONWatch" */;
+			buildPhases = (
+				B120EE62207B899300A4A7CA /* Sources */,
+				B120EE63207B899300A4A7CA /* Frameworks */,
+				B120EE64207B899300A4A7CA /* Headers */,
+				B120EE65207B899300A4A7CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeoJSONWatch;
+			productName = GeoJSONWatch;
+			productReference = B120EE67207B899300A4A7CA /* GeoJSONWatch.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		B15933191CD8A13B00A5D192 /* GeoJSON */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B159332E1CD8A13B00A5D192 /* Build configuration list for PBXNativeTarget "GeoJSON" */;
@@ -264,18 +315,22 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = threesidedcube;
 				TargetAttributes = {
+					B120EE66207B899300A4A7CA = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Manual;
+					};
 					B15933191CD8A13B00A5D192 = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 					};
 					B15933231CD8A13B00A5D192 = {
 						CreatedOnToolsVersion = 7.3;
 					};
 					B16B17E31D9FCAA900B2EB68 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = P645CBFH93;
 						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					B16B17EB1D9FCAAA00B2EB68 = {
 						CreatedOnToolsVersion = 8.0;
@@ -300,11 +355,19 @@
 				B15933231CD8A13B00A5D192 /* GeoJSONTests */,
 				B16B17E31D9FCAA900B2EB68 /* GeoJSONMac */,
 				B16B17EB1D9FCAAA00B2EB68 /* GeoJSONMacTests */,
+				B120EE66207B899300A4A7CA /* GeoJSONWatch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B120EE65207B899300A4A7CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B15933181CD8A13B00A5D192 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,6 +400,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B120EE62207B899300A4A7CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B120EE71207B899B00A4A7CA /* Feature.swift in Sources */,
+				B120EE6F207B899B00A4A7CA /* Geometry.swift in Sources */,
+				B120EE70207B899B00A4A7CA /* Shapes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B15933151CD8A13B00A5D192 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +464,88 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B120EE6C207B899300A4A7CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GeoJSONWatch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.GeoJSONWatch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		B120EE6D207B899300A4A7CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GeoJSONWatch/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.GeoJSONWatch;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		B159332C1CD8A13B00A5D192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -486,7 +641,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -496,6 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSON;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -506,7 +665,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -516,6 +678,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSON;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -548,9 +711,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = P645CBFH93;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -561,6 +725,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -576,9 +741,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = P645CBFH93;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -589,6 +755,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -642,6 +809,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B120EE6E207B899300A4A7CA /* Build configuration list for PBXNativeTarget "GeoJSONWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B120EE6C207B899300A4A7CA /* Debug */,
+				B120EE6D207B899300A4A7CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B15933141CD8A13B00A5D192 /* Build configuration list for PBXProject "GeoJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
