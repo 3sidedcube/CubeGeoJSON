@@ -165,7 +165,7 @@ open class Position: NSObject {
      - Parameter positions: The array of Position objects to return the center point for
      - Returns: A Position object at the center of the given positions
      */
-    open static func center(_ positions:[Position]) -> Position {
+    public static func center(_ positions:[Position]) -> Position {
         
         if (positions.count == 1) {
             return positions.first!

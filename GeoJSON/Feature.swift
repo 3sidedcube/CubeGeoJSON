@@ -35,6 +35,6 @@ open class FeatureCollection: NSObject {
     public init?(dictionary: [AnyHashable : Any]) {
         
         guard let featuresArray = dictionary["features"] as? [[AnyHashable : Any]] else { return nil }
-        features = featuresArray.flatMap({ Feature(dictionary: $0) })
+        features = featuresArray.compactMap({ Feature(dictionary: $0) })
     }
 }
