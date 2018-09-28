@@ -348,10 +348,17 @@ open class Geometry: NSObject {
         }
     }
     
+    #if os(iOS) || os(macOS) || os(tvOS)
     /**
-     An optional array of MKShape objects which represent the geometry
+     An optional array of `MKShape` objects which represent the geometry
      */
-    open var shapes:[MKShape]?
+    open var shapes: [MKShape]?
+    #elseif os(watchOS)
+    /**
+     An optional array of `MKAnnotation` objects which represent the geometry
+    */
+    open var shapes: [MKAnnotation]?
+    #endif
     
     /**
      Initialises and populates a new Geometry object from a GeoJSON dictionary
@@ -404,21 +411,28 @@ open class Geometry: NSObject {
         case .lineString:
             
             guard let coords = coordinates else { break }
+            #if os(iOS) || os(macOS) || os(tvOS)
             shapes = [Polyline.polyline(coordinates: coords, order: .lngLat)]
+            #endif
             
         case .multiLineString:
             
+            #if os(iOS) || os(macOS) || os(tvOS)
             shapes = multiCoordinates?.map({
                 return Polyline.polyline(coordinates: $0, order: .lngLat)
             })
+            #endif
             
         case .polygon:
             
+            #if os(iOS) || os(macOS) || os(tvOS)
             guard let multiCoords = multiCoordinates, let polygon = processPolygon(multiCoords) else { break }
             shapes = [polygon]
+            #endif
             
         case .multiPolygon:
             
+            #if os(iOS) || os(macOS) || os(tvOS)
             guard let multiMultiCoords = multiMultiCoordinates else { break }
             
             var polygons: [MKShape] = []
@@ -429,6 +443,7 @@ open class Geometry: NSObject {
                 }
             }
             shapes = polygons
+            #endif
             
         case .geometryCollection:
             
@@ -437,7 +452,11 @@ open class Geometry: NSObject {
                 return Geometry(dictionary: $0)
             })
             
+            #if os(iOS) || os(macOS) || os(tvOS)
             var aShapes: [MKShape] = []
+            #elseif os(watchOS)
+            var aShapes: [MKAnnotation] = []
+            #endif
             for geometry in geometries! {
                 
                 if let gShapes = geometry.shapes {
@@ -448,14 +467,17 @@ open class Geometry: NSObject {
             
         case .circle:
             
+            #if os(iOS) || os(macOS) || os(tvOS)
             guard let coords = coordinates, let firstCoord = coords.first else { break }
             shapes = [Circle.circle(firstCoord, radius: radius, order: .lngLat)]
+            #endif
             
         default: break
             
         }
     }
     
+    #if os(iOS) || os(macOS) || os(tvOS)
     /**
      Processes and allocates a Polygon shape from an array of array of positions
      
@@ -474,6 +496,7 @@ open class Geometry: NSObject {
         
         return Polygon.polygon(coordinates: outerCoords, order: .lngLat, interiorPolygons:innerPolygons)
     }
+    #endif
     
     /**
      Processes the coordinates property of a Geometry object
