@@ -25,7 +25,7 @@ $ brew install carthage
 To integrate CubeGeoJSON into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "3sidedcube/CubeGeoJSON" ~> 1.0
+github "3sidedcube/CubeGeoJSON" ~> 1.0.0
 ```
 
 Run `carthage update` to build the framework and drag the built `GeoJSON.framework` into your Xcode project.
