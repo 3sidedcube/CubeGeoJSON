@@ -37,4 +37,33 @@ open class FeatureCollection: NSObject {
         guard let featuresArray = dictionary["features"] as? [[AnyHashable : Any]] else { return nil }
         features = featuresArray.compactMap({ Feature(dictionary: $0) })
     }
+    
+    public init(features: [Feature]) {
+        self.features = features
+    }
+}
+
+/**
+ Allows the plus operator to add a Feature object to a FeatureCollection object
+ */
+public func +(left: FeatureCollection, right: Feature) -> FeatureCollection {
+    return left + [right]
+}
+
+/**
+ Allows the plus operator to add an array Feature objects to a FeatureCollection object
+ */
+public func +(left: FeatureCollection, right: [Feature]) -> FeatureCollection {
+    let allFeatures = left.features
+    allFeatures.append(contentsOf: right)
+    return FeatureCollection(features: allFeatures)
+}
+
+/**
+ Allows the plus operator to add a FeatureCollection object to a FeatureCollection object
+ */
+public func +(left: FeatureCollection, right: FeatureCollection) -> FeatureCollection {
+    let allFeatures = left.features
+    allFeatures.append(contentsOf: right.features)
+    return FeatureCollection(features: allFeatures)
 }
