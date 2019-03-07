@@ -23,49 +23,39 @@ class TestCore: XCTestCase {
     /**
      Loads a dictionary object out of a given JSON file name for testing model allocation
      */
-    func loadDictionaryForFile(name: String!) -> [AnyHashable : Any]? {
+    func loadDictionary(forFileName name: String!) -> [AnyHashable : Any]? {
         
-        let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "geojson")
-        
-        if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
-            
-            do {
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [AnyHashable : Any] {
-                    
-                    return jsonObject
-                }
-                
-            } catch let error as NSError {
-                
-                print(error)
-            }
+        guard let jsonFilePath = Bundle(for: TestCore.self).url(forResource: name, withExtension: "geojson") else {
+            return nil
+        }
+        guard let jsonFileData = try? Data(contentsOf: jsonFilePath) else {
+            return nil
         }
         
-        return nil
+        guard let jsonObject = try? JSONSerialization.jsonObject(with: jsonFileData, options: []) else {
+            return nil
+        }
+        
+        return jsonObject as? [AnyHashable : Any]
     }
     
     /**
      Loads a dictionary object out of a given JSON file name for testing model allocation
      */
-    func loadArrayForFile(name: String!) -> [[AnyHashable : Any]]? {
+    func loadArray(forFileName name: String!) -> [[AnyHashable : Any]]? {
         
-        let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "json")
-        
-        if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
-            
-            do {
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [[AnyHashable : Any]] {
-                    
-                    return jsonObject
-                }
-                
-            } catch let error as NSError {
-                
-                print(error)
-            }
+        guard let jsonFilePath = Bundle(for: TestCore.self).url(forResource: name, withExtension: "geojson") else {
+            return nil
+        }
+        guard let jsonFileData = try? Data(contentsOf: jsonFilePath) else {
+            return nil
         }
         
-        return nil
+        guard let jsonObject = try? JSONSerialization.jsonObject(with: jsonFileData, options: []) else {
+            return nil
+        }
+        
+        return jsonObject as? [[AnyHashable : Any]]
     }
     
 }

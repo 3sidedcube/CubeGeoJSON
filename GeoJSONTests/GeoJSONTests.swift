@@ -24,12 +24,12 @@ class GeoJSONTests: TestCore {
     
     func testPointAllocation() {
 
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/PointGeoJSON") else { return }
+        guard let dictionary = loadDictionary(forFileName: "Test GeoJSON/PointGeoJSON") else { return }
             
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON, "the GeoJSON object was unexpectedly nil")
-        XCTAssertEqual(geoJSON.type, GeometryType.Point, "GeoJSON has incorrect type")
+        XCTAssertEqual(geoJSON.type, GeometryType.point, "GeoJSON has incorrect type")
         XCTAssertEqual(geoJSON.typeString, "Point", "GeoJSON has incorrect type string")
         XCTAssertNotNil(geoJSON.coordinates, "coordinates was unexpectedly nil")
         XCTAssertNil(geoJSON.multiCoordinates, "multiCoordinates was unexpectedly non-nil")
@@ -56,13 +56,13 @@ class GeoJSONTests: TestCore {
     
     func testMultiPointAllocation() {
         
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiPointGeoJSON") else { return }
+        guard let dictionary = loadDictionary(forFileName: "Test GeoJSON/MultiPointGeoJSON") else { return }
         
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.coordinates, "Coordinates was unexpectedly nil")
         XCTAssertEqual(geoJSON.coordinates?.count, 2, "Incorrect number of coordinates allocated")
-        XCTAssertEqual(geoJSON.type, GeometryType.MultiPoint, "GeoJSON has incorrect type")
+        XCTAssertEqual(geoJSON.type, GeometryType.multiPoint, "GeoJSON has incorrect type")
         XCTAssertEqual(geoJSON.typeString, "MultiPoint", "GeoJSON has incorrect type string")
         
         if let firstCoordinate = geoJSON.coordinates?.first {
@@ -100,13 +100,13 @@ class GeoJSONTests: TestCore {
     
     func testLineStringAllocation() {
         
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/LineStringGeoJSON") else { return }
+        guard let dictionary = loadDictionary(forFileName: "Test GeoJSON/LineStringGeoJSON") else { return }
         
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.coordinates, "Coordinates was unexpectedly nil")
         XCTAssertEqual(geoJSON.coordinates?.count, 26, "Incorrect number of coordinates allocated")
-        XCTAssertEqual(geoJSON.type, GeometryType.LineString, "GeoJSON has incorrect type")
+        XCTAssertEqual(geoJSON.type, GeometryType.lineString, "GeoJSON has incorrect type")
         XCTAssertEqual(geoJSON.typeString, "LineString", "GeoJSON has incorrect type string")
         
         if let firstCoordinate = geoJSON.coordinates?.first {
@@ -133,12 +133,12 @@ class GeoJSONTests: TestCore {
     
     func testMultiLineStringAllocation() {
         
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiLineStringGeoJSON") else { return }
+        guard let dictionary = loadDictionary(forFileName: "Test GeoJSON/MultiLineStringGeoJSON") else { return }
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiCoordinates, "MultiCoordinates was unexpectedly nil")
         XCTAssertEqual(geoJSON.multiCoordinates?.count, 4, "MultiCoordinates has incorrect length")
-        XCTAssertEqual(geoJSON.type, GeometryType.MultiLineString, "GeoJSON has incorrect type")
+        XCTAssertEqual(geoJSON.type, GeometryType.multiLineString, "GeoJSON has incorrect type")
         XCTAssertEqual(geoJSON.typeString, "MultiLineString", "GeoJSON has incorrect type string")
         
         if let firstCoordinateArray = geoJSON.multiCoordinates?.first {
@@ -170,14 +170,12 @@ class GeoJSONTests: TestCore {
     
     func testPolygonAllocation() {
         
-        let bundle = NSBundle(forClass: GeoJSONTests.self)
-        
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/PolygonGeoJSON") else { return }
+        guard let dictionary = loadDictionary(forFileName: "Test GeoJSON/PolygonGeoJSON") else { return }
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiCoordinates, "MultiCoordinates was unexpectedly nil")
         XCTAssertEqual(geoJSON.multiCoordinates?.count, 2, "MultiCoordinates has incorrect length")
-        XCTAssertEqual(geoJSON.type, GeometryType.Polygon, "GeoJSON has incorrect type")
+        XCTAssertEqual(geoJSON.type, GeometryType.polygon, "GeoJSON has incorrect type")
         XCTAssertEqual(geoJSON.typeString, "Polygon", "GeoJSON has incorrect type string")
         
         XCTAssertEqual(geoJSON.multiCoordinates?.first?.count, 176, "First coordinate array has incorrect length")
@@ -203,12 +201,12 @@ class GeoJSONTests: TestCore {
     
     func testMultiPolygonAllocation() {
         
-        guard let dictionary = loadDictionaryForFile("Test GeoJSON/MultiPolygonGeoJSON") else { return }
+        guard let dictionary = loadDictionary(forFileName: "Test GeoJSON/MultiPolygonGeoJSON") else { return }
         let geoJSON = Geometry(dictionary: dictionary)
         
         XCTAssertNotNil(geoJSON.multiMultiCoordinates, "MultiMultiCoordinates was unexpectedly nil")
         XCTAssertEqual(geoJSON.multiMultiCoordinates?.count, 2, "MultiCoordinates has incorrect length")
-        XCTAssertEqual(geoJSON.type, GeometryType.MultiPolygon, "GeoJSON has incorrect type")
+        XCTAssertEqual(geoJSON.type, GeometryType.multiPolygon, "GeoJSON has incorrect type")
         XCTAssertEqual(geoJSON.typeString, "MultiPolygon", "GeoJSON has incorrect type string")
         
         XCTAssertEqual(geoJSON.multiMultiCoordinates?.first?.count, 2, "First coordinate array has incorrect length")
