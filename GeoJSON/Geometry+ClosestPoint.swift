@@ -17,18 +17,18 @@ extension Position {
     ///
     /// - Parameter location: The location to return the distance to
     /// - Returns: The distance in metres
-    public func distance(fromLocation: CLLocation) -> CLLocationDistance {
+    public func distance(from location: CLLocation) -> CLLocationDistance {
         let selfLocation = CLLocation(latitude: latitude, longitude: longitude)
-        return fromLocation.distance(from: selfLocation)
+        return location.distance(from: selfLocation)
     }
     
     /// Calculates the distance between the position and another position
     ///
-    /// - Parameter location: The position to return the distance to
+    /// - Parameter position: The position to return the distance to
     /// - Returns: The distance in metres
-    public func distance(fromPosition: Position) -> CLLocationDistance {
-        let otherLocation = CLLocation(latitude: fromPosition.latitude, longitude: fromPosition.longitude)
-        return self.distance(fromLocation: otherLocation)
+    public func distance(from position: Position) -> CLLocationDistance {
+        let otherLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
+        return self.distance(from: otherLocation)
     }
 }
 
@@ -78,6 +78,12 @@ extension Array where Element == Position {
     /// - Parameter location: The location to find the closest position to
     /// - Returns: The closest position if one is found
     public func closestPosition(toLocation location: CLLocation) -> (position: Position, distance: CLLocationDistance, previous: Position, next: Position)? {
+        
+        var fixedSelf = self
+        // If the first and last position are identical, then remove them otherwise we can get identical positions returned as the closest and previous/next which can cause issues with further calculations!
+        if first?.longitude == last?.longitude && first?.latitude == last?.latitude {
+            fixedSelf.removeFirst()
+        }
         
         let elements = enumerated().map({ (index, position) -> (position: Position, distance: CLLocationDistance, previous: Position, next: Position) in
             
