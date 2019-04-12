@@ -85,15 +85,15 @@ extension Array where Element == Position {
             fixedSelf.removeFirst()
         }
         
-        let elements = enumerated().map({ (index, position) -> (position: Position, distance: CLLocationDistance, previous: Position, next: Position) in
+        let elements = fixedSelf.enumerated().map({ (index, position) -> (position: Position, distance: CLLocationDistance, previous: Position, next: Position) in
             
             var nextIndex = index + 1
             var previousIndex = index - 1
-            if !indices.contains(nextIndex) {
+            if !fixedSelf.indices.contains(nextIndex) {
                 nextIndex = 0
             }
-            if !indices.contains(previousIndex) {
-                previousIndex = count - 1
+            if !fixedSelf.indices.contains(previousIndex) {
+                previousIndex = fixedSelf.count - 1
             }
             
             return (position, position.distance(from: location), fixedSelf[previousIndex], fixedSelf[nextIndex])
