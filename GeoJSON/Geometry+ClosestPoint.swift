@@ -96,7 +96,7 @@ extension Array where Element == Position {
                 previousIndex = count - 1
             }
             
-            return (position, position.distance(from: location), self[previousIndex], self[nextIndex])
+            return (position, position.distance(from: location), fixedSelf[previousIndex], fixedSelf[nextIndex])
         })
         
         return elements.sorted(by: { (element1, element2) -> Bool in
