@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-               BuildableName = "GeoJSON.framework"
-               BlueprintName = "GeoJSON"
+               BlueprintIdentifier = "B16B17E31D9FCAA900B2EB68"
+               BuildableName = "GeoJSONMac.framework"
+               BlueprintName = "GeoJSONMac"
                ReferencedContainer = "container:GeoJSON.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15933231CD8A13B00A5D192"
-               BuildableName = "GeoJSONTests.xctest"
-               BlueprintName = "GeoJSONTests"
+               BlueprintIdentifier = "B16B17EB1D9FCAAA00B2EB68"
+               BuildableName = "GeoJSONMacTests.xctest"
+               BlueprintName = "GeoJSONMacTests"
                ReferencedContainer = "container:GeoJSON.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-            BuildableName = "GeoJSON.framework"
-            BlueprintName = "GeoJSON"
+            BlueprintIdentifier = "B16B17E31D9FCAA900B2EB68"
+            BuildableName = "GeoJSONMac.framework"
+            BlueprintName = "GeoJSONMac"
             ReferencedContainer = "container:GeoJSON.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-            BuildableName = "GeoJSON.framework"
-            BlueprintName = "GeoJSON"
+            BlueprintIdentifier = "B16B17E31D9FCAA900B2EB68"
+            BuildableName = "GeoJSONMac.framework"
+            BlueprintName = "GeoJSONMac"
             ReferencedContainer = "container:GeoJSON.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-            BuildableName = "GeoJSON.framework"
-            BlueprintName = "GeoJSON"
+            BlueprintIdentifier = "B16B17E31D9FCAA900B2EB68"
+            BuildableName = "GeoJSONMac.framework"
+            BlueprintName = "GeoJSONMac"
             ReferencedContainer = "container:GeoJSON.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

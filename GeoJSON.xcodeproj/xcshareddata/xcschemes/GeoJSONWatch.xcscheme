@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-               BuildableName = "GeoJSON.framework"
-               BlueprintName = "GeoJSON"
+               BlueprintIdentifier = "B120EE66207B899300A4A7CA"
+               BuildableName = "GeoJSONWatch.framework"
+               BlueprintName = "GeoJSONWatch"
                ReferencedContainer = "container:GeoJSON.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,29 +26,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15933231CD8A13B00A5D192"
-               BuildableName = "GeoJSONTests.xctest"
-               BlueprintName = "GeoJSONTests"
-               ReferencedContainer = "container:GeoJSON.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-            BuildableName = "GeoJSON.framework"
-            BlueprintName = "GeoJSON"
-            ReferencedContainer = "container:GeoJSON.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -65,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-            BuildableName = "GeoJSON.framework"
-            BlueprintName = "GeoJSON"
+            BlueprintIdentifier = "B120EE66207B899300A4A7CA"
+            BuildableName = "GeoJSONWatch.framework"
+            BlueprintName = "GeoJSONWatch"
             ReferencedContainer = "container:GeoJSON.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15933191CD8A13B00A5D192"
-            BuildableName = "GeoJSON.framework"
-            BlueprintName = "GeoJSON"
+            BlueprintIdentifier = "B120EE66207B899300A4A7CA"
+            BuildableName = "GeoJSONWatch.framework"
+            BlueprintName = "GeoJSONWatch"
             ReferencedContainer = "container:GeoJSON.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

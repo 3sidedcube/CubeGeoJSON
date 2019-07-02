@@ -23,14 +23,12 @@ class TestCore: XCTestCase {
     /**
      Loads a dictionary object out of a given JSON file name for testing model allocation
      */
-    func loadDictionaryForFile(name: String!) -> [AnyHashable : Any]? {
+    func loadDictionaryForFile(_ name: String!) -> [AnyHashable : Any]? {
+        let jsonFilePath = Bundle(for: type(of: self)).url(forResource: name, withExtension: "geojson")
         
-        let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "geojson")
-        
-        if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
-            
+        if let jsonPath = jsonFilePath, let jsonFileData = try? Data(contentsOf: jsonPath) {
             do {
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [AnyHashable : Any] {
+                if let jsonObject = try JSONSerialization.jsonObject(with: jsonFileData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [AnyHashable : Any] {
                     
                     return jsonObject
                 }
@@ -49,12 +47,11 @@ class TestCore: XCTestCase {
      */
     func loadArrayForFile(name: String!) -> [[AnyHashable : Any]]? {
         
-        let jsonFilePath = NSBundle(forClass: self.dynamicType).pathForResource(name, ofType: "json")
+        let jsonFilePath = Bundle(for: type(of: self)).url(forResource: name, withExtension: "json")
         
-        if let jsonPath = jsonFilePath, let jsonFileData = NSData(contentsOfFile: jsonPath) {
-            
+        if let jsonPath = jsonFilePath, let jsonFileData = try? Data(contentsOf: jsonPath) {
             do {
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonFileData, options: NSJSONReadingOptions.MutableContainers) as? [[AnyHashable : Any]] {
+                if let jsonObject = try JSONSerialization.jsonObject(with: jsonFileData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [[AnyHashable : Any]] {
                     
                     return jsonObject
                 }

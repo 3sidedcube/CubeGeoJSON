@@ -21,7 +21,7 @@ open class Polygon: MKPolygon {
      
      - Parameter coordinates: An array of coordinates representing the Polygon
      */
-    open static func polygon(_ coordinates:[Position]) -> Polygon {
+    public static func polygon(_ coordinates:[Position]) -> Polygon {
         return self.polygon(coordinates: coordinates, order: .lngLat, interiorPolygons:[])
     }
     
@@ -31,7 +31,7 @@ open class Polygon: MKPolygon {
      - Parameter coordinates: An array of coordinates representing the Polygon
      - Parameter order: The order that the coordinates appear in
      */
-    open static func polygon(_ coordinates:[Position], order:CoordinateOrder) -> Polygon {
+    public static func polygon(_ coordinates:[Position], order:CoordinateOrder) -> Polygon {
         return self.polygon(coordinates: coordinates, order:order, interiorPolygons:[])
     }
     
@@ -42,7 +42,7 @@ open class Polygon: MKPolygon {
      - Parameter order: The order that the coordinates appear in
      - Parameter interiorPolygons: Any interior polygon objects that the polygon has
      */
-    open static func polygon(coordinates coords:[Position], order:CoordinateOrder, interiorPolygons:[Polygon]?) -> Polygon {
+    public static func polygon(coordinates coords:[Position], order:CoordinateOrder, interiorPolygons:[Polygon]?) -> Polygon {
         
         var coordinates: [CLLocationCoordinate2D] = coords.map({
             return $0.coordinate(order)
@@ -62,7 +62,7 @@ open class Polyline: MKPolyline {
      
      - Parameter coordinates: An array of coordinates representing the Polyline
      */
-    open static func polyline(_ coordinates:[Position]) -> Polyline {
+    public static func polyline(_ coordinates:[Position]) -> Polyline {
         return self.polyline(coordinates: coordinates, order: .lngLat)
     }
     
@@ -72,7 +72,7 @@ open class Polyline: MKPolyline {
      - Parameter coordinates: An array of coordinates representing the Polyline
      - Parameter order: The order that the coordinates appear in
      */
-    open static func polyline(coordinates coords:[Position], order: CoordinateOrder) -> Polyline {
+    public static func polyline(coordinates coords:[Position], order: CoordinateOrder) -> Polyline {
         
         var coordinates: [CLLocationCoordinate2D] = coords.map({
             return $0.coordinate(order)
@@ -93,7 +93,7 @@ open class Circle: MKCircle {
      - Parameter coordinate: The center coordinate of the circle
      - Parameter radius: The radius of the circle
      */
-    open static func circle(_ coordinate:Position, radius:CLLocationDistance) -> Circle {
+    public static func circle(_ coordinate:Position, radius:CLLocationDistance) -> Circle {
         return self.circle(coordinate, radius:radius, order: .lngLat)
     }
     
@@ -104,7 +104,7 @@ open class Circle: MKCircle {
      - Parameter radius: The radius of the circle
      - Parameter order: The order that the coordinates appear in
      */
-    open static func circle(_ coordinate:Position, radius:CLLocationDistance, order:CoordinateOrder) -> Circle {
+    public static func circle(_ coordinate:Position, radius:CLLocationDistance, order:CoordinateOrder) -> Circle {
         return Circle(center: coordinate.coordinate(order), radius: radius)
     }
 }
@@ -118,7 +118,7 @@ open class PointShape: MKPointAnnotation {
      
      - Parameter coordinate: The coordinate of the annotation
      */
-    open static func point(_ coordinate:Position) -> PointShape {
+    public static func point(_ coordinate:Position) -> PointShape {
         return self.point(coordinate, order: .lngLat)
     }
     /**
@@ -127,7 +127,7 @@ open class PointShape: MKPointAnnotation {
      - Parameter coordinate: The coordinate of the annotation
      - Parameter order: The coordinate order of the position object
      */
-    open static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
+    public static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
         let point = PointShape()
         point.coordinate = coordinate.coordinate(order)
         return point
@@ -154,7 +154,7 @@ open class PointShape: NSObject, MKAnnotation {
      
      - Parameter coordinate: The coordinate of the annotation
      */
-    open static func point(_ coordinate:Position) -> PointShape {
+    public static func point(_ coordinate:Position) -> PointShape {
         return self.point(coordinate, order: .lngLat)
     }
     /**
@@ -163,7 +163,7 @@ open class PointShape: NSObject, MKAnnotation {
      - Parameter coordinate: The coordinate of the annotation
      - Parameter order: The coordinate order of the position object
      */
-    open static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
+    public static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
         let point = PointShape()
         point.coordinate = coordinate.coordinate(order)
         return point
