@@ -49,7 +49,7 @@ class positionTests: XCTestCase {
     func testLongLat() {
         
         let position = Position(coordinates: [10,20])
-        let coordinate2D = position.coordinate(.LngLat)
+        let coordinate2D = position.coordinate(.lngLat)
         
         XCTAssertEqual(coordinate2D.latitude, 20, "Coordinate has incorrect latitude")
         XCTAssertEqual(coordinate2D.longitude, 10, "Coordinate has incorrect longitude")
@@ -58,7 +58,7 @@ class positionTests: XCTestCase {
     func testLatLong() {
         
         let position = Position(coordinates: [10,20])
-        let coordinate2D = position.coordinate(.LatLng)
+        let coordinate2D = position.coordinate(.latLng)
         
         XCTAssertEqual(coordinate2D.latitude, 10, "Coordinate has incorrect latitude")
         XCTAssertEqual(coordinate2D.longitude, 20, "Coordinate has incorrect longitude")
