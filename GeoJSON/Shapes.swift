@@ -154,7 +154,7 @@ open class PointShape: NSObject, MKAnnotation {
      
      - Parameter coordinate: The coordinate of the annotation
      */
-    open static func point(_ coordinate:Position) -> PointShape {
+    public static func point(_ coordinate:Position) -> PointShape {
         return self.point(coordinate, order: .lngLat)
     }
     /**
@@ -163,7 +163,7 @@ open class PointShape: NSObject, MKAnnotation {
      - Parameter coordinate: The coordinate of the annotation
      - Parameter order: The coordinate order of the position object
      */
-    open static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
+    public static func point(_ coordinate:Position, order: CoordinateOrder) -> PointShape {
         let point = PointShape()
         point.coordinate = coordinate.coordinate(order)
         return point
