@@ -51,6 +51,7 @@ playground.xcworkspace
 # Carthage/Checkouts
 
 Carthage/Build
+GeoJSON.framework.zip
 
 # fastlane
 #
@@ -61,3 +62,6 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+# MacOS
+.DS_Store
