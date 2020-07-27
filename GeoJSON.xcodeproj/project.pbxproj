@@ -27,6 +27,8 @@
 		B1D85EA91DA126F700469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
 		B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
 		B8534E6B24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */; };
+		B8534E6C24CF06BC00258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */; };
+		B8534E6D24CF06C000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -410,6 +412,7 @@
 			files = (
 				B120EE71207B899B00A4A7CA /* Feature.swift in Sources */,
 				B120EE6F207B899B00A4A7CA /* Geometry.swift in Sources */,
+				B8534E6D24CF06C000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */,
 				B120EE70207B899B00A4A7CA /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +444,7 @@
 			files = (
 				B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */,
 				B16B17FB1D9FCAB100B2EB68 /* Geometry.swift in Sources */,
+				B8534E6C24CF06BC00258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */,
 				B16B17FC1D9FCAB100B2EB68 /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
