@@ -129,6 +129,8 @@ open class Position: NSObject {
         
         latitude = coordinates.count > 1 ? coordinates[1] : 0.0
         longitude = coordinates.count > 0 ? coordinates[0] : 0.0
+        
+        longitude = longitude.mappedLongitude
     }
     
     /**
