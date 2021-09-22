@@ -1,6 +1,6 @@
 # CubeGeoJSON
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift 5.1](http://img.shields.io/badge/swift-5.1-brightgreen.svg)](https://swift.org/blog/swift-5-1-released/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift 5.5](http://img.shields.io/badge/swift-5.5-brightgreen.svg)](https://swift.org/blog/swift-5-5-released/)
 
 A GeoJSON library for iOS, macOS, and watchOS written in Swift.
 
@@ -27,10 +27,14 @@ $ brew install carthage
 To integrate CubeGeoJSON into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "3sidedcube/CubeGeoJSON" == 1.2.0
+github "3sidedcube/CubeGeoJSON" ~> 2.0.0
 ```
 
-Run `carthage update` to build the framework and drag the built `GeoJSON.framework` into your Xcode project.
+Then run 
+```bash
+carthage update --use-xcframeworks
+```
+to build the framework and drag the built `GeoJSON.xcframework` into your Xcode project.
 
 ### Manually
 
