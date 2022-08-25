@@ -26,6 +26,9 @@
 		B1A5CC611CD9039F004A22C7 /* TestCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A5CC601CD9039F004A22C7 /* TestCore.swift */; };
 		B1D85EA91DA126F700469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
 		B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D85EA81DA126F700469588 /* Feature.swift */; };
+		B8534E6B24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */; };
+		B8534E6C24CF06BC00258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */; };
+		B8534E6D24CF06C000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,7 @@
 		B16B17F31D9FCAAA00B2EB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1A5CC601CD9039F004A22C7 /* TestCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCore.swift; sourceTree = "<group>"; };
 		B1D85EA81DA126F700469588 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Antimeridian.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 				B159331D1CD8A13B00A5D192 /* GeoJSON.h */,
 				B159331F1CD8A13B00A5D192 /* Info.plist */,
 				B1D85EA81DA126F700469588 /* Feature.swift */,
+				B8534E6A24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift */,
 			);
 			path = GeoJSON;
 			sourceTree = "<group>";
@@ -312,7 +317,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = threesidedcube;
 				TargetAttributes = {
 					B120EE66207B899300A4A7CA = {
@@ -407,6 +412,7 @@
 			files = (
 				B120EE71207B899B00A4A7CA /* Feature.swift in Sources */,
 				B120EE6F207B899B00A4A7CA /* Geometry.swift in Sources */,
+				B8534E6D24CF06C000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */,
 				B120EE70207B899B00A4A7CA /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +423,7 @@
 			files = (
 				B1D85EA91DA126F700469588 /* Feature.swift in Sources */,
 				B14D86431CD8BACE0000C7E6 /* Shapes.swift in Sources */,
+				B8534E6B24CF026000258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */,
 				B15933431CD8A46600A5D192 /* Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +444,7 @@
 			files = (
 				B1D85EAA1DA126FA00469588 /* Feature.swift in Sources */,
 				B16B17FB1D9FCAB100B2EB68 /* Geometry.swift in Sources */,
+				B8534E6C24CF06BC00258A00 /* CLLocationCoordinate2D+Antimeridian.swift in Sources */,
 				B16B17FC1D9FCAB100B2EB68 /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +504,7 @@
 				INFOPLIST_FILE = GeoJSONWatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.GeoJSONWatch;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -539,7 +547,7 @@
 				INFOPLIST_FILE = GeoJSONWatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.GeoJSONWatch;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -575,6 +583,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -600,7 +609,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -635,6 +643,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -654,7 +663,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -678,9 +686,9 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GeoJSON/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSON;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -703,9 +711,9 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GeoJSON/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSON;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -756,7 +764,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -788,7 +796,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.GeoJSONMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
