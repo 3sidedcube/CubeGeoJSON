@@ -30,7 +30,7 @@ extension FloatingPoint {
     func mappedLongitude(_ longitude: Self) -> Self {
         if longitude > 180 {
             return mappedLongitude(longitude - 360)
-        } else if longitude <= -180 {
+        } else if longitude < -180 {
             return mappedLongitude(longitude + 360)
         }
         
