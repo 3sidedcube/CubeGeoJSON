@@ -24,7 +24,7 @@ class TestCore: XCTestCase {
      Loads a dictionary object out of a given JSON file name for testing model allocation
      */
     func loadDictionaryForFile(_ name: String!) -> [AnyHashable : Any]? {
-        let jsonFilePath = Bundle(for: type(of: self)).url(forResource: name, withExtension: "geojson")
+        let jsonFilePath = Bundle.module.url(forResource: name, withExtension: "geojson", subdirectory: "TestGeoJSON")
         
         if let jsonPath = jsonFilePath, let jsonFileData = try? Data(contentsOf: jsonPath) {
             do {
@@ -47,7 +47,7 @@ class TestCore: XCTestCase {
      */
     func loadArrayForFile(name: String!) -> [[AnyHashable : Any]]? {
         
-        let jsonFilePath = Bundle(for: type(of: self)).url(forResource: name, withExtension: "json")
+        let jsonFilePath = Bundle.module.url(forResource: name, withExtension: "json")
         
         if let jsonPath = jsonFilePath, let jsonFileData = try? Data(contentsOf: jsonPath) {
             do {
