@@ -1,6 +1,6 @@
 # CubeGeoJSON
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift 5.5](http://img.shields.io/badge/swift-5.5-brightgreen.svg)](https://swift.org/blog/swift-5-5-released/)
+ [![Swift 5.5](http://img.shields.io/badge/swift-5.5-brightgreen.svg)](https://swift.org/blog/swift-5-5-released/)
 
 A GeoJSON library for iOS, macOS, and watchOS written in Swift.
 
@@ -13,43 +13,13 @@ Features:
 
 ## Installation
 
-### Carthage
+Add the package with Swift Package Manager, either in Xcode (File › Add Package Dependencies…) or in a `Package.swift`:
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
+```swift
+.package(url: "https://github.com/3sidedcube/CubeGeoJSON.git", branch: "feature/spm-v27")
 ```
 
-To integrate CubeGeoJSON into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```
-github "3sidedcube/CubeGeoJSON" ~> 2.0.0
-```
-
-Then run 
-```bash
-carthage update --use-xcframeworks
-```
-to build the framework and drag the built `GeoJSON.xcframework` into your Xcode project.
-
-### Manually
-
-- Add CubeGeoJSON as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
-
-```bash
-$ git submodule add https://github.com/3sidedcube/CubeGeoJSON.git
-```
-
-- Open the new `CubeGeoJSON` folder, and drag the `GeoJSON.xcodeproj` into the Project Navigator of your application's Xcode project.
-
-    > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
-
-- Make sure the `GeoJSON.xcodeproj` is set up with the same deployment target as your root project.
-- Add `GeoJSON.framework` as a target dependency to your project.
+`GeoJSON` is a dynamic library product. Add it to your app target with **Embed & Sign**; other targets that use it (frameworks, app extensions, test bundles) link it without embedding, so the app loads a single copy.
 
 ## Usage
 
