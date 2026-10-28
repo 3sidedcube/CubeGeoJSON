@@ -4,11 +4,12 @@ import PackageDescription
 let package = Package(
     name: "GeoJSON",
     platforms: [
-        .iOS(.v14)
+        .iOS("18.0")
     ],
     products: [
         .library(
             name: "GeoJSON",
+            type: .dynamic,
             targets: ["GeoJSON"]
         )
     ],
